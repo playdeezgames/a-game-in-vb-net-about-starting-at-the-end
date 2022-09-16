@@ -7,6 +7,7 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "AGameInVbNetAboutStartingAt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stuff", "Stuff", "{42D35E5B-8ED2-4CE5-A76D-3E8120ACECA2}"
 	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 		shippit.sh = shippit.sh
 	EndProjectSection
 EndProject
