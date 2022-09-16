@@ -1,10 +1,10 @@
-﻿Module Columns
-    Friend Const CharacterIdColumn = "CharacterId"
-    Friend Const CharacterNameColumn = "CharacterName"
-    Friend Const FromLocationIdColumn = "FromLocationId"
-    Friend Const LocationIdColumn = "LocationId"
-    Friend Const LocationNameColumn = "LocationName"
-    Friend Const PlayerIdColumn = "PlayerId"
-    Friend Const RouteIdColumn = "RouteId"
-    Friend Const RouteNameColumn = "RouteName"
+﻿Public Module Columns
+    Public Const CharacterIdColumn = "CharacterId"
+    Public Const CharacterNameColumn = "CharacterName"
+    Public Const FromLocationIdColumn = "FromLocationId"
+    Public Const LocationIdColumn = "LocationId"
+    Public Const LocationNameColumn = "LocationName"
+    Public Const PlayerIdColumn = "PlayerId"
+    Public Const RouteIdColumn = "RouteId"
+    Public Const RouteNameColumn = "RouteName"
 End Module

@@ -1,6 +1,6 @@
-﻿Module Tables
-    Friend Const Characters = "Characters"
-    Friend Const Locations = "Locations"
-    Friend Const Players = "Players"
-    Friend Const Routes = "Routes"
+﻿Public Module Tables
+    Public Const Characters = "Characters"
+    Public Const Locations = "Locations"
+    Public Const Players = "Players"
+    Public Const Routes = "Routes"
 End Module
