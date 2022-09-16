@@ -15,4 +15,16 @@
             Return WorldData.Location.ReadName(Id)
         End Get
     End Property
+
+    Public ReadOnly Property HasRoutes As Boolean Implements ILocation.HasRoutes
+        Get
+            Return WorldData.Route.CountForFromLocation(Id) > 0
+        End Get
+    End Property
+
+    Public ReadOnly Property Routes As IEnumerable(Of IRoute) Implements ILocation.Routes
+        Get
+            Return WorldData.Route.ReadForFromLocation(Id).Select(Function(x) Route.FromId(WorldData, x))
+        End Get
+    End Property
 End Class
