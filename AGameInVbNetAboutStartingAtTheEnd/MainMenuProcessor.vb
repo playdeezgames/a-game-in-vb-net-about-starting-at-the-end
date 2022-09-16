@@ -7,7 +7,7 @@
             prompt.AddChoice(QuitText)
             Select Case AnsiConsole.Prompt(prompt)
                 Case QuitText
-                    done = True
+                    done = Confirm("Are you sure you want to quit?")
             End Select
         End While
     End Sub
