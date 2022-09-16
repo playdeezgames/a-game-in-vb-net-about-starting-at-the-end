@@ -1,5 +1,6 @@
 ﻿Module Constants
     Friend Const AbandonGameText = "Abandon Game"
+    Friend Const DatabaseFileName = "end.db"
     Friend Const EndNewGameText = "End New Game"
     Friend Const NoText = "No"
     Friend Const OkText = "Ok"

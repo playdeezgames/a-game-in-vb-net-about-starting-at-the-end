@@ -8,7 +8,9 @@
             prompt.AddChoice(QuitText)
             Select Case AnsiConsole.Prompt(prompt)
                 Case EndNewGameText
-                    Dim game As IGame = New Game(New WorldData())
+                    Dim store As IStore = New Store(Constants.DatabaseFileName)
+                    store.Reset()
+                    Dim game As IGame = New Game(New WorldData(store))
                     game.EndGame()
                     PlayProcessor.Run(game)
                 Case QuitText

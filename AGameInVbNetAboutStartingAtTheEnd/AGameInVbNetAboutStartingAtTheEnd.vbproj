@@ -20,6 +20,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="end.db" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="end.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Spectre.Console" Version="0.45.0" />
   </ItemGroup>
 
@@ -27,6 +37,7 @@
     <Import Include="AGIVNASATE.Data" />
     <Import Include="AGIVNASATE.Game" />
     <Import Include="Spectre.Console" />
+    <Import Include="SPLORR.Data" />
   </ItemGroup>
 
   <ItemGroup>
