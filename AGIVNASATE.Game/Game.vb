@@ -11,6 +11,6 @@ Public Class Game
         End Get
     End Property
 
-    Public Sub EndGame() Implements IGame.EndGame
+    Public Sub StartGame() Implements IGame.StartGame
     End Sub
 End Class

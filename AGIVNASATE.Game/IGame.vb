@@ -1,4 +1,4 @@
 ﻿Public Interface IGame
-    Sub EndGame()
+    Sub StartGame()
     ReadOnly Property PlayerCharacter As ICharacter
 End Interface

@@ -4,14 +4,14 @@
         While Not done
             AnsiConsole.Clear()
             Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Main Menu:[/]"}
-            prompt.AddChoice(EndNewGameText)
+            prompt.AddChoice(StartNewGameText)
             prompt.AddChoice(QuitText)
             Select Case AnsiConsole.Prompt(prompt)
-                Case EndNewGameText
+                Case StartNewGameText
                     Dim store As IStore = New Store(Constants.DatabaseFileName)
                     store.Reset()
                     Dim game As IGame = New Game(New WorldData(store))
-                    game.EndGame()
+                    game.StartGame()
                     PlayProcessor.Run(game)
                 Case QuitText
                     done = Confirm("Are you sure you want to quit?")
