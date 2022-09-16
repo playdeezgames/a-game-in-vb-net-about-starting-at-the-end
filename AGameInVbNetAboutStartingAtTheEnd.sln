@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stuff", "Stuff", "{42D35E5B
 		shippit.sh = shippit.sh
 	EndProjectSection
 EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "SPLORR.Data", "SPLORR.Data\SPLORR.Data.vbproj", "{65D14E2F-1058-4F84-9D7D-433DC10E6D11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3D23FB71-3D14-4B79-A965-5541D12D81B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{A0BB744E-7716-45C4-9D63-3EEBD4CF6DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0BB744E-7716-45C4-9D63-3EEBD4CF6DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0BB744E-7716-45C4-9D63-3EEBD4CF6DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D14E2F-1058-4F84-9D7D-433DC10E6D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D14E2F-1058-4F84-9D7D-433DC10E6D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D14E2F-1058-4F84-9D7D-433DC10E6D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D14E2F-1058-4F84-9D7D-433DC10E6D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65D14E2F-1058-4F84-9D7D-433DC10E6D11} = {3D23FB71-3D14-4B79-A965-5541D12D81B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E383001E-78DA-4DC7-A60B-23E6D5010BC9}
