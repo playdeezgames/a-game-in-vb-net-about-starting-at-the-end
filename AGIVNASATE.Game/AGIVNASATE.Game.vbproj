@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>AGIVNASATE.Game</RootNamespace>
@@ -17,5 +17,13 @@
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AGIVNASATE.Data\AGIVNASATE.Data.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="AGIVNASATE.Data" />
+  </ItemGroup>
 
 </Project>
