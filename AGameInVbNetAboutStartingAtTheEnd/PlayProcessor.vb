@@ -3,12 +3,19 @@
         Dim done = False
         While Not done
             AnsiConsole.Clear()
-            Dim character = world.PlayerCharacter
-            Dim location = character.Location
-            Dim characters = location.Characters.Where(Function(x) x.Id <> character.Id)
-            AnsiConsole.MarkupLine($"{character.Name} is at {location.Name}.")
+            Dim playerCharacter = world.PlayerCharacter
+            Dim location = playerCharacter.Location
+            AnsiConsole.MarkupLine($"{playerCharacter.Name} is at {location.Name}.")
+
+            Dim characters = location.Characters.Where(Function(x) x.Id <> playerCharacter.Id)
+            If characters.Any Then
+                AnsiConsole.MarkupLine($"Other Characters:")
+                For Each character In characters
+                    AnsiConsole.MarkupLine($"* {character.Name}")
+                Next
+            End If
             AnsiConsole.MarkupLine("Statistics:")
-            Dim satiety = character.Satiety
+            Dim satiety = playerCharacter.Satiety
             AnsiConsole.MarkupLine($"* Satiety: {satiety.Item1}/{satiety.Item2}")
             If location.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
