@@ -49,9 +49,12 @@
     Sub ShouldRetrieveTheSatietyStatisticsForAGiveCharacter()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 Dim actual = subject.Satiety
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBe(0)
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 1L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 2L))
             End Sub)
     End Sub
 End Class

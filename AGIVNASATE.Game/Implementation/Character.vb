@@ -26,12 +26,12 @@
     End Property
     Private ReadOnly Property MaximumSatiety As Long
         Get
-            Return 0L
+            Return If(WorldData.CharacterStatistic.Read(Id, 1L), 0)
         End Get
     End Property
     Private ReadOnly Property Hunger As Long
         Get
-            Return 0L
+            Return If(WorldData.CharacterStatistic.Read(Id, 2L), 0)
         End Get
     End Property
 
