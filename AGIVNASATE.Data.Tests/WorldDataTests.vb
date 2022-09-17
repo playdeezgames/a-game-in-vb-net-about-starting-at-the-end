@@ -1,9 +1,10 @@
 Public Class WorldDataTests
     <Fact>
-    Sub ShouldHaveSubobject()
+    Sub ShouldHaveSubobjects()
         Dim store As New Mock(Of IStore)
         Dim worldData As IWorldData = New WorldData(store.Object)
         worldData.Character.ShouldNotBeNull
+        worldData.CharacterStatistic.ShouldNotBeNull
         worldData.Location.ShouldNotBeNull
         worldData.Player.ShouldNotBeNull
         worldData.Route.ShouldNotBeNull

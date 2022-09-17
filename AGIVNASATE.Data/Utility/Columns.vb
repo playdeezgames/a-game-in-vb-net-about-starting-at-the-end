@@ -7,5 +7,7 @@
     Public Const PlayerIdColumn = "PlayerId"
     Public Const RouteIdColumn = "RouteId"
     Public Const RouteNameColumn = "RouteName"
+    Public Const StatisticTypeIdColumn = "StatisticTypeId"
+    Public Const StatisticValueColumn = "StatisticValue"
     Public Const ToLocationIdColumn = "ToLocationId"
 End Module

@@ -1,0 +1,12 @@
+﻿Public Class CharacterStatisticData
+    Inherits BaseData
+    Implements ICharacterStatisticData
+
+    Public Sub New(store As IStore)
+        MyBase.New(store)
+    End Sub
+
+    Public Function Read(characterId As Long, statisticTypeId As Long) As Long? Implements ICharacterStatisticData.Read
+        Return Store.ReadColumnValue(Of Long, Long, Long)(AddressOf NoInitializer, Tables.CharacterStatistics, Columns.StatisticValueColumn, (Columns.CharacterIdColumn, characterId), (Columns.StatisticTypeIdColumn, statisticTypeId))
+    End Function
+End Class
