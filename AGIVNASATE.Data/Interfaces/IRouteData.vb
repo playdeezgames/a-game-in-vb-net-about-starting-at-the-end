@@ -2,4 +2,5 @@
     Function CountForFromLocation(fromLocationId As Long) As Long
     Function ReadName(routeId As Long) As String
     Function ReadForFromLocation(fromLocationId As Long) As IEnumerable(Of Long)
+    Function ReadToLocation(routeId As Long) As Long?
 End Interface

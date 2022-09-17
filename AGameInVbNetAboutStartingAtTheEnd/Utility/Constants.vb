@@ -7,4 +7,5 @@
     Friend Const QuitText = "Quit"
     Friend Const StartNewGameText = "Start New Game"
     Friend Const YesText = "Yes"
+    Friend Const NeverMindText = "Never Mind"
 End Module

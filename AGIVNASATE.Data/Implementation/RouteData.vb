@@ -25,4 +25,8 @@
             Columns.RouteIdColumn,
             (Columns.FromLocationIdColumn, fromLocationId))
     End Function
+
+    Public Function ReadToLocation(routeId As Long) As Long? Implements IRouteData.ReadToLocation
+        Throw New NotImplementedException()
+    End Function
 End Class

@@ -31,4 +31,18 @@
                 worldData.Verify(Function(x) x.Character.ReadName(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldMoveACharacterAlongARoute()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const locationId = 2L
+                worldData.SetupGet(Function(x) x.Character).Returns((New Mock(Of ICharacterData)).Object)
+                Dim route As New Mock(Of IRoute)
+                route.SetupGet(Function(x) x.ToLocation.Id).Returns(locationId)
+                subject.Move(route.Object)
+                route.VerifyGet(Function(x) x.ToLocation.Id)
+                route.VerifyNoOtherCalls()
+                worldData.Verify(Sub(x) x.Character.WriteLocation(id, locationId))
+            End Sub)
+    End Sub
 End Class

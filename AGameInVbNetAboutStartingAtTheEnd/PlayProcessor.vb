@@ -1,9 +1,9 @@
 ﻿Module PlayProcessor
-    Friend Sub Run(game As IWorld)
+    Friend Sub Run(world As IWorld)
         Dim done = False
         While Not done
             AnsiConsole.Clear()
-            Dim character = game.PlayerCharacter
+            Dim character = world.PlayerCharacter
             Dim location = character.Location
             AnsiConsole.MarkupLine($"{character.Name} is at {location.Name}.")
             If location.HasRoutes Then
@@ -21,6 +21,8 @@
             Select Case AnsiConsole.Prompt(prompt)
                 Case AbandonGameText
                     done = Confirm("Are you sure you want to abandon the game?")
+                Case MoveText
+                    MoveProcessor.Run(world)
             End Select
         End While
     End Sub

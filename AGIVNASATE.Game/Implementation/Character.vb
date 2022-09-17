@@ -18,6 +18,10 @@
         End Get
     End Property
 
+    Public Sub Move(route As IRoute) Implements ICharacter.Move
+        WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
+    End Sub
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function

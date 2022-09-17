@@ -6,6 +6,10 @@
         MyBase.New(store)
     End Sub
 
+    Public Sub WriteLocation(characterId As Long, locationId As Long) Implements ICharacterData.WriteLocation
+        Throw New NotImplementedException()
+    End Sub
+
     Public Function ReadName(characterId As Long) As String Implements ICharacterData.ReadName
         Return Store.ReadColumnString(
             AddressOf NoInitializer,
