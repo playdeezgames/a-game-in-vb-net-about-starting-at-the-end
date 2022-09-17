@@ -1,4 +1,3 @@
-﻿Public Interface IGame
-    Sub StartGame()
+﻿Public Interface IWorld
     ReadOnly Property PlayerCharacter As ICharacter
 End Interface

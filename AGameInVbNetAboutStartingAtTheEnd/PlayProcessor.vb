@@ -1,5 +1,5 @@
 ﻿Module PlayProcessor
-    Friend Sub Run(game As IGame)
+    Friend Sub Run(game As IWorld)
         Dim done = False
         While Not done
             AnsiConsole.Clear()
