@@ -30,7 +30,7 @@
 
     Public ReadOnly Property Characters As IEnumerable(Of ICharacter) Implements ILocation.Characters
         Get
-            Return Array.Empty(Of ICharacter)
+            Return WorldData.Character.ReadForLocation(Id).Select(Function(x) Character.FromId(WorldData, x))
         End Get
     End Property
 End Class
