@@ -13,4 +13,13 @@
                 subject.Id.ShouldBe(id)
             End Sub)
     End Sub
+    <Fact>
+    Sub RetrieveAGivenRoutesNameFromTheData()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.SetupGet(Function(x) x.Route).Returns((New Mock(Of IRouteData)).Object)
+                subject.Name.ShouldBeNull
+                worldData.Verify(Function(x) x.Route.ReadName(id))
+            End Sub)
+    End Sub
 End Class
