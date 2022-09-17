@@ -27,4 +27,10 @@
             Return WorldData.Route.ReadForFromLocation(Id).Select(Function(x) Route.FromId(WorldData, x))
         End Get
     End Property
+
+    Public ReadOnly Property Characters As IEnumerable(Of ICharacter) Implements ILocation.Characters
+        Get
+            Return Array.Empty(Of ICharacter)
+        End Get
+    End Property
 End Class

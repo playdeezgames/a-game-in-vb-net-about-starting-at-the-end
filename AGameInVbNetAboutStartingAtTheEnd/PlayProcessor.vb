@@ -5,6 +5,7 @@
             AnsiConsole.Clear()
             Dim character = world.PlayerCharacter
             Dim location = character.Location
+            Dim characters = location.Characters.Where(Function(x) x.Id <> character.Id)
             AnsiConsole.MarkupLine($"{character.Name} is at {location.Name}.")
             AnsiConsole.MarkupLine("Statistics:")
             Dim satiety = character.Satiety

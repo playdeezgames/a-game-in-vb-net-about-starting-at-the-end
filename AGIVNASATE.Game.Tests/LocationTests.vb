@@ -40,4 +40,11 @@
                 worldData.Verify(Function(x) x.Route.ReadForFromLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveCharactersInAGivenLocation()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Characters.ShouldBeEmpty
+            End Sub)
+    End Sub
 End Class
