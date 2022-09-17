@@ -45,4 +45,13 @@
                 worldData.Verify(Sub(x) x.Character.WriteLocation(id, locationId))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveTheSatietyStatisticsForAGiveCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Dim actual = subject.Satiety
+                actual.Item1.ShouldBe(0)
+                actual.Item2.ShouldBe(0)
+            End Sub)
+    End Sub
 End Class
