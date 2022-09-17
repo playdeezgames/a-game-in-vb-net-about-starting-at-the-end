@@ -33,6 +33,19 @@
             End Sub)
     End Sub
     <Fact>
+    Sub ShouldAttemptToReadToLocationFromTheStore()
+        WithRouteData(
+            Sub(store, id, subject)
+                subject.ReadToLocation(id).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadColumnValue(Of Long, Long)(
+                        It.IsAny(Of Action),
+                        Tables.Routes,
+                        Columns.ToLocationIdColumn,
+                        (Columns.RouteIdColumn, id)))
+            End Sub)
+    End Sub
+    <Fact>
     Sub ShouldAttemptToReadTheCountOfRoutesForAGivenLocation()
         WithRouteData(
             Sub(store, id, subject)

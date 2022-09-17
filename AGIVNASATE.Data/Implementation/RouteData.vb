@@ -27,6 +27,10 @@
     End Function
 
     Public Function ReadToLocation(routeId As Long) As Long? Implements IRouteData.ReadToLocation
-        Throw New NotImplementedException()
+        Return Store.ReadColumnValue(Of Long, Long)(
+            AddressOf NoInitializer,
+            Tables.Routes,
+            Columns.ToLocationIdColumn,
+            (Columns.RouteIdColumn, routeId))
     End Function
 End Class
