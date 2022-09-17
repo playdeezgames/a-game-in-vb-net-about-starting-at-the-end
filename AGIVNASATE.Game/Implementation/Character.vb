@@ -24,14 +24,16 @@
             Return (maxSatiety - Hunger, MaximumSatiety)
         End Get
     End Property
+    Const MaximumSatietyStatisticTypeId = 1L
     Private ReadOnly Property MaximumSatiety As Long
         Get
-            Return If(WorldData.CharacterStatistic.Read(Id, 1L), 0)
+            Return If(WorldData.CharacterStatistic.Read(Id, MaximumSatietyStatisticTypeId), 0)
         End Get
     End Property
+    Const HungerStatisticTypeId = 2L
     Private ReadOnly Property Hunger As Long
         Get
-            Return If(WorldData.CharacterStatistic.Read(Id, 2L), 0)
+            Return If(WorldData.CharacterStatistic.Read(Id, HungerStatisticTypeId), 0)
         End Get
     End Property
 
