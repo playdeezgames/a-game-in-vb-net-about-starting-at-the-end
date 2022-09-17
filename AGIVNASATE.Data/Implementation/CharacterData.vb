@@ -29,4 +29,12 @@
             Columns.LocationIdColumn,
             (Columns.CharacterIdColumn, characterId))
     End Function
+
+    Public Function ReadForLocation(locationId As Long) As IEnumerable(Of Long) Implements ICharacterData.ReadForLocation
+        Return Store.ReadRecordsWithColumnValue(Of Long, Long)(
+            AddressOf NoInitializer,
+            Tables.Characters,
+            Columns.CharacterIdColumn,
+            (Columns.LocationIdColumn, locationId))
+    End Function
 End Class
