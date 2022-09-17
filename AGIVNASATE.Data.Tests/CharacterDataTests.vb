@@ -32,4 +32,18 @@
                         (Columns.CharacterIdColumn, id)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldAttemptWritingALocationForACharacterToTheStore()
+        WithCharacterData(
+            Sub(store, id, subject)
+                Const locationId = 2L
+                subject.WriteLocation(id, locationId)
+                store.Verify(
+                    Sub(x) x.WriteColumnValue(Of Long, Long)(
+                        It.IsAny(Of Action),
+                        Tables.Characters,
+                        (Columns.LocationIdColumn, locationId),
+                        (Columns.CharacterIdColumn, id)))
+            End Sub)
+    End Sub
 End Class
