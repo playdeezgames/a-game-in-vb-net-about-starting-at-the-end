@@ -8,7 +8,7 @@
             AnsiConsole.MarkupLine($"{character.Name} is at {location.Name}.")
             AnsiConsole.MarkupLine("Statistics:")
             Dim satiety = character.Satiety
-            AnsiConsole.MarkupLine($"* {satiety.Item1}/{satiety.Item2}")
+            AnsiConsole.MarkupLine($"* Satiety: {satiety.Item1}/{satiety.Item2}")
             If location.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
                 For Each route In location.Routes
