@@ -1,15 +1,14 @@
 ﻿Public Class CharacterStatisticDataTests
-    Private Sub WithCharacterStatisticData(stuffToDo As Action(Of Mock(Of IStore), Long, ICharacterStatisticData))
-        Const id = 1L
+    Private Sub WithCharacterStatisticData(stuffToDo As Action(Of Mock(Of IStore), ICharacterStatisticData))
         Dim store As New Mock(Of IStore)
         Dim subject As ICharacterStatisticData = New CharacterStatisticData(store.Object)
-        stuffToDo(store, id, subject)
+        stuffToDo(store, subject)
         store.VerifyNoOtherCalls()
     End Sub
     <Fact>
     Sub ShouldAttemptToReadAStatisticValueForAGivenCharacterAndStatisticType()
         WithCharacterStatisticData(
-            Sub(store, id, subject)
+            Sub(store, subject)
                 Const characterId = 1L
                 Const statisticTypeId = 2L
                 subject.Read(characterId, statisticTypeId)
