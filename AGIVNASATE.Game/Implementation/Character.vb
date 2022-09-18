@@ -54,6 +54,21 @@
             Return (maxHealth - Wounds, maxHealth)
         End Get
     End Property
+    Const AttackStatisticTypeId = 5L
+
+    Public ReadOnly Property Attack As Long Implements ICharacter.Attack
+        Get
+            Return If(WorldData.CharacterStatistic.Read(Id, AttackStatisticTypeId), 0)
+        End Get
+    End Property
+
+    Const DefendStatisticTypeId = 6L
+    Public ReadOnly Property Defend As Long Implements ICharacter.Defend
+        Get
+            Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
+        End Get
+    End Property
+
     Public Sub Move(route As IRoute) Implements ICharacter.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
     End Sub

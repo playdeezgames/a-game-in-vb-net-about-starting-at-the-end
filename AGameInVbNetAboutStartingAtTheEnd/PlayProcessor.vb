@@ -6,7 +6,6 @@
             Dim playerCharacter = world.PlayerCharacter
             Dim location = playerCharacter.Location
             AnsiConsole.MarkupLine($"{playerCharacter.Name} is at {location.Name}.")
-
             Dim characters = location.Characters.Where(Function(x) x.Id <> playerCharacter.Id)
             If characters.Any Then
                 AnsiConsole.MarkupLine($"Other Characters:")
@@ -20,6 +19,8 @@
             AnsiConsole.MarkupLine($"* Satiety: {satiety.Item1}/{satiety.Item2}")
             Dim health = playerCharacter.Health
             AnsiConsole.MarkupLine($"* Health: {health.Item1}/{health.Item2}")
+            AnsiConsole.MarkupLine($"* Attack: {playerCharacter.Attack}")
+            AnsiConsole.MarkupLine($"* Defend: {playerCharacter.Defend}")
             If location.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
                 For Each route In location.Routes
