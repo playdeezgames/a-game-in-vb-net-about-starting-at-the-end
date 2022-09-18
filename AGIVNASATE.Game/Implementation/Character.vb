@@ -30,13 +30,30 @@
             Return If(WorldData.CharacterStatistic.Read(Id, MaximumSatietyStatisticTypeId), 0)
         End Get
     End Property
+    Const MaximumHealthStatisticTypeId = 3L
+    Private ReadOnly Property MaximumHealth As Long
+        Get
+            Return If(WorldData.CharacterStatistic.Read(Id, MaximumHealthStatisticTypeId), 0)
+        End Get
+    End Property
     Const HungerStatisticTypeId = 2L
     Private ReadOnly Property Hunger As Long
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, HungerStatisticTypeId), 0)
         End Get
     End Property
-
+    Const WoundsStatisticTypeId = 4L
+    Private ReadOnly Property Wounds As Long
+        Get
+            Return If(WorldData.CharacterStatistic.Read(Id, WoundsStatisticTypeId), 0)
+        End Get
+    End Property
+    Public ReadOnly Property Health As (Long, Long) Implements ICharacter.Health
+        Get
+            Dim maxHealth = MaximumHealth
+            Return (maxHealth - Wounds, maxHealth)
+        End Get
+    End Property
     Public Sub Move(route As IRoute) Implements ICharacter.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
     End Sub

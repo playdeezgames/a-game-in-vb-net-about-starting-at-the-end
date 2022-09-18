@@ -57,4 +57,16 @@
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 2L))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveTheHealthStatisticsForAGiveCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
+                Dim actual = subject.Health
+                actual.Item1.ShouldBe(0)
+                actual.Item2.ShouldBe(0)
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 3L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4L))
+            End Sub)
+    End Sub
 End Class

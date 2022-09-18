@@ -44,7 +44,9 @@
     Sub ShouldRetrieveCharactersInAGivenLocation()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.Character.ReadForLocation(It.IsAny(Of Long)))
                 subject.Characters.ShouldBeEmpty
+                worldData.Verify(Function(x) x.Character.ReadForLocation(id))
             End Sub)
     End Sub
 End Class

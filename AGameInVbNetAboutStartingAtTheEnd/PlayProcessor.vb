@@ -11,19 +11,21 @@
             If characters.Any Then
                 AnsiConsole.MarkupLine($"Other Characters:")
                 For Each character In characters
-                    AnsiConsole.MarkupLine($"* {character.Name}")
+                    Dim characterHealth = character.Health
+                    AnsiConsole.MarkupLine($"* {character.Name} ({characterHealth.Item1}/{characterHealth.Item2})")
                 Next
             End If
             AnsiConsole.MarkupLine("Statistics:")
             Dim satiety = playerCharacter.Satiety
             AnsiConsole.MarkupLine($"* Satiety: {satiety.Item1}/{satiety.Item2}")
+            Dim health = playerCharacter.Health
+            AnsiConsole.MarkupLine($"* Health: {health.Item1}/{health.Item2}")
             If location.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
                 For Each route In location.Routes
                     AnsiConsole.MarkupLine($"* {route.Name}")
                 Next
             End If
-
             Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
             If location.HasRoutes Then
                 prompt.AddChoice(MoveText)
