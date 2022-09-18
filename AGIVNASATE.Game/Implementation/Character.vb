@@ -62,6 +62,13 @@
             Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
         End Get
     End Property
+
+    Public ReadOnly Property CanFight As Boolean Implements ICharacter.CanFight
+        Get
+            Return False
+        End Get
+    End Property
+
     Public Sub Move(route As IRoute) Implements ICharacter.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
     End Sub

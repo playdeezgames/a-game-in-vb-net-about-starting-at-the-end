@@ -28,6 +28,9 @@
                 Next
             End If
             Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
+            If playerCharacter.CanFight Then
+                prompt.AddChoice(FightText)
+            End If
             If location.HasRoutes Then
                 prompt.AddChoice(MoveText)
             End If

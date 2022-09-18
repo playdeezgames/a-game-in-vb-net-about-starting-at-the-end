@@ -23,6 +23,13 @@
             End Sub)
     End Sub
     <Fact>
+    Sub ShouldAttempToDeterineEnemyPresenceForACharacterFromTheData()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.CanFight.ShouldBeFalse
+            End Sub)
+    End Sub
+    <Fact>
     Sub ShouldAttemptToReadNameForACharacterFromTheData()
         WithSubject(
             Sub(worldData, id, subject)
