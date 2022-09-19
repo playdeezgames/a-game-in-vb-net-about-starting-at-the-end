@@ -14,30 +14,12 @@
             End Sub)
     End Sub
     <Fact>
-    Sub ShouldAttempToDeterineEnemyPresenceForACharacterFromTheData()
-        WithSubject(
-            Sub(worldData, id, subject)
-                worldData.Setup(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(It.IsAny(Of Long)))
-                subject.CanFight.ShouldBeFalse
-                worldData.Verify(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(id))
-            End Sub)
-    End Sub
-    <Fact>
     Sub ShouldAttemptToReadNameForACharacterFromTheData()
         WithSubject(
             Sub(worldData, id, subject)
                 worldData.SetupGet(Function(x) x.Character).Returns((New Mock(Of ICharacterData)).Object)
                 subject.Name.ShouldBeNull
                 worldData.Verify(Function(x) x.Character.ReadName(id))
-            End Sub)
-    End Sub
-    <Fact>
-    Sub ShouldRetrieveEnemiesAtTheSameLocation()
-        WithSubject(
-            Sub(worldData, id, subject)
-                worldData.Setup(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(It.IsAny(Of Long)))
-                subject.Enemies.ShouldBeEmpty
-                worldData.Verify(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(id))
             End Sub)
     End Sub
     <Fact>

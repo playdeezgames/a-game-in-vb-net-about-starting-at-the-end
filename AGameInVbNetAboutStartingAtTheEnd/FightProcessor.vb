@@ -1,6 +1,6 @@
 ﻿Module FightProcessor
     Friend Sub Run(character As ICharacter)
-        Dim enemy = ChooseEnemy(character.Enemies)
+        Dim enemy = ChooseEnemy(character.Combat.Enemies)
         If enemy Is Nothing Then
             Return
         End If
