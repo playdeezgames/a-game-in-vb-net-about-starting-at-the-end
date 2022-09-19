@@ -1,10 +1,7 @@
 ﻿Public Class LocationTests
-    Private Sub WithSubject(stuffToDo As Action(Of Mock(Of IWorldData), Long, ILocation))
-        Const id = 1L
-        Dim worldData As New Mock(Of IWorldData)
-        Dim subject As ILocation = New Location(worldData.Object, id)
-        stuffToDo(worldData, id, subject)
-        worldData.VerifyNoOtherCalls()
+    Inherits BaseGameTests(Of ILocation)
+    Sub New()
+        MyBase.New(AddressOf Location.FromId)
     End Sub
     <Fact>
     Sub ShouldHoldAnIdNumber()
