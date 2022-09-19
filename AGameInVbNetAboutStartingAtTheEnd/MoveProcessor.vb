@@ -1,6 +1,6 @@
 ﻿Module MoveProcessor
     Friend Sub Run(character As ICharacter)
-        Dim routes = character.Location.Routes
+        Dim routes = character.Navigation.Location.Routes
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Which Way?[/]"}
         prompt.AddChoice(NeverMindText)
         Dim table = routes.ToDictionary(Function(x) x.Name, Function(x) x)

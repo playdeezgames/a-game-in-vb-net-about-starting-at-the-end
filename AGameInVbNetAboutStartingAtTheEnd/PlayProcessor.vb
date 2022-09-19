@@ -4,7 +4,7 @@
         While Not done
             AnsiConsole.Clear()
             Dim playerCharacter = world.PlayerCharacter
-            Dim location = playerCharacter.Location
+            Dim location = playerCharacter.Navigation.Location
             AnsiConsole.MarkupLine($"{playerCharacter.Name} is at {location.Name}.")
             Dim characters = location.Characters.Where(Function(x) x.Id <> playerCharacter.Id)
             If characters.Any Then

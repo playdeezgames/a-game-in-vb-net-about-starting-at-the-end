@@ -9,11 +9,6 @@
             Return WorldData.Character.ReadName(Id)
         End Get
     End Property
-    Public ReadOnly Property Location As ILocation Implements ICharacter.Location
-        Get
-            Return AGIVNASATE.Game.Location.FromId(WorldData, WorldData.Character.ReadLocation(Id))
-        End Get
-    End Property
     Public ReadOnly Property Satiety As (Long, Long) Implements ICharacter.Satiety
         Get
             Dim maxSatiety = MaximumSatiety

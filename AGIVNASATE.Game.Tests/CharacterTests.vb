@@ -14,15 +14,6 @@
             End Sub)
     End Sub
     <Fact>
-    Sub ShouldAttempToReadLocationForACharacterFromTheData()
-        WithSubject(
-            Sub(worldData, id, subject)
-                worldData.SetupGet(Function(x) x.Character).Returns((New Mock(Of ICharacterData)).Object)
-                subject.Location.ShouldBeNull
-                worldData.Verify(Function(x) x.Character.ReadLocation(id))
-            End Sub)
-    End Sub
-    <Fact>
     Sub ShouldAttempToDeterineEnemyPresenceForACharacterFromTheData()
         WithSubject(
             Sub(worldData, id, subject)
