@@ -10,17 +10,17 @@
             If characters.Any Then
                 AnsiConsole.MarkupLine($"Other Characters:")
                 For Each character In characters
-                    Dim characterHealth = character.Health
+                    Dim characterHealth = character.Statistics.Health
                     AnsiConsole.MarkupLine($"* {character.Name} ({characterHealth.Item1}/{characterHealth.Item2})")
                 Next
             End If
             AnsiConsole.MarkupLine("Statistics:")
-            Dim satiety = playerCharacter.Satiety
+            Dim satiety = playerCharacter.Statistics.Satiety
             AnsiConsole.MarkupLine($"* Satiety: {satiety.Item1}/{satiety.Item2}")
-            Dim health = playerCharacter.Health
+            Dim health = playerCharacter.Statistics.Health
             AnsiConsole.MarkupLine($"* Health: {health.Item1}/{health.Item2}")
-            AnsiConsole.MarkupLine($"* Attack: {playerCharacter.Attack}")
-            AnsiConsole.MarkupLine($"* Defend: {playerCharacter.Defend}")
+            AnsiConsole.MarkupLine($"* Attack: {playerCharacter.Statistics.Attack}")
+            AnsiConsole.MarkupLine($"* Defend: {playerCharacter.Statistics.Defend}")
             If location.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
                 For Each route In location.Routes
