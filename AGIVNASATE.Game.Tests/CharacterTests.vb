@@ -26,7 +26,9 @@
     Sub ShouldAttempToDeterineEnemyPresenceForACharacterFromTheData()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(It.IsAny(Of Long)))
                 subject.CanFight.ShouldBeFalse
+                worldData.Verify(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(id))
             End Sub)
     End Sub
     <Fact>

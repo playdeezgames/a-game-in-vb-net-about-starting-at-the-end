@@ -65,7 +65,7 @@
 
     Public ReadOnly Property CanFight As Boolean Implements ICharacter.CanFight
         Get
-            Return False
+            Return WorldData.CharacterLocationEsteem.ReadForFromCharacter(Id).Any(Function(x) x.Item2 < 0)
         End Get
     End Property
 
