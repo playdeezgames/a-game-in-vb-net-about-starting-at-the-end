@@ -6,8 +6,8 @@
         MyBase.New(worlddata, id)
     End Sub
 
-    Friend Shared Function FromId(worldData As IWorldData, id As Long) As ICharacterStatistics
-        Return New CharacterStatistics(worldData, id)
+    Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacterStatistics
+        Return If(id.HasValue, New CharacterStatistics(worldData, id.Value), Nothing)
     End Function
     Public ReadOnly Property Satiety As (Long, Long) Implements ICharacterStatistics.Satiety
         Get

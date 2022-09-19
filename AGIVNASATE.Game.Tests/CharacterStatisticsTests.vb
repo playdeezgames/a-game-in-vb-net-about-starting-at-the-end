@@ -1,10 +1,7 @@
 ﻿Public Class CharacterStatisticsTests
-    Private Sub WithSubject(stuffToDo As Action(Of Mock(Of IWorldData), Long, ICharacterStatistics))
-        Const id = 1L
-        Dim worldData As New Mock(Of IWorldData)
-        Dim subject As ICharacterStatistics = New CharacterStatistics(worldData.Object, id)
-        stuffToDo(worldData, id, subject)
-        worldData.VerifyNoOtherCalls()
+    Inherits BaseGameTests(Of ICharacterStatistics)
+    Sub New()
+        MyBase.New(AddressOf CharacterStatistics.FromId)
     End Sub
     <Fact>
     Sub ShouldRetrieveTheSatietyStatisticsForAGiveCharacter()
