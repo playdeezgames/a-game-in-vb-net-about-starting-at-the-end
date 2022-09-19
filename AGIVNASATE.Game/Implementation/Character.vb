@@ -74,6 +74,13 @@
                 Select(Function(x) Character.FromId(WorldData, x.Item1))
         End Get
     End Property
+
+    Public ReadOnly Property Navigation As ICharacterNavigation Implements ICharacter.Navigation
+        Get
+            Return CharacterNavigation.FromId(WorldData, Id)
+        End Get
+    End Property
+
     Public Sub Move(route As IRoute) Implements ICharacter.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
     End Sub

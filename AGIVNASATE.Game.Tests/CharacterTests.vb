@@ -107,4 +107,11 @@
                 worldData.Verify(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheCharacterNavigationSubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Navigation.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class
