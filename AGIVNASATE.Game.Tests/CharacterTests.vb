@@ -54,4 +54,11 @@
                 subject.Statistics.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheCharacterCombatSubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Combat.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class
