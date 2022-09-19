@@ -2,7 +2,6 @@
     Inherits IBaseThingie
     ReadOnly Property Name As String
     ReadOnly Property Navigation As ICharacterNavigation
-    Sub Move(route As IRoute)
 
     ReadOnly Property Satiety As (Long, Long)
     ReadOnly Property Health As (Long, Long)

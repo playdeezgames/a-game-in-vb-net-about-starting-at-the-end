@@ -10,7 +10,7 @@
             Case NeverMindText
                 'do nothing
             Case Else
-                character.Move(table(answer))
+                character.Navigation.Move(table(answer))
         End Select
     End Sub
 End Module
