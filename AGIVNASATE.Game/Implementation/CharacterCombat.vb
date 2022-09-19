@@ -6,8 +6,8 @@
         MyBase.New(worlddata, id)
     End Sub
 
-    Public Shared Function FromId(worldData As IWorldData, id As Long) As ICharacterCombat
-        Return New CharacterCombat(worldData, id)
+    Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacterCombat
+        Return If(id.HasValue, New CharacterCombat(worldData, id.Value), Nothing)
     End Function
     Public ReadOnly Property CanFight As Boolean Implements ICharacterCombat.CanFight
         Get
