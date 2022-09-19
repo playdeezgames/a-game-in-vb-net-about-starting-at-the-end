@@ -8,4 +8,5 @@
     ReadOnly Property Attack As Long
     ReadOnly Property Defend As Long
     ReadOnly Property CanFight As Boolean
+    ReadOnly Property Enemies As IEnumerable(Of ICharacter)
 End Interface

@@ -98,4 +98,11 @@
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 6L))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveEnemiesAtTheSameLocation()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Enemies.ShouldBeEmpty
+            End Sub)
+    End Sub
 End Class

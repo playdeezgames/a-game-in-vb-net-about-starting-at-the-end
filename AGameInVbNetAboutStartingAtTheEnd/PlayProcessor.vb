@@ -38,8 +38,10 @@
             Select Case AnsiConsole.Prompt(prompt)
                 Case AbandonGameText
                     done = Confirm("Are you sure you want to abandon the game?")
+                Case FightText
+                    FightProcessor.Run(playerCharacter)
                 Case MoveText
-                    MoveProcessor.Run(world)
+                    MoveProcessor.Run(playerCharacter)
             End Select
         End While
     End Sub

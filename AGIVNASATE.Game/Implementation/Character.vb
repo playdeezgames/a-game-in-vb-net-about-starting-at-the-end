@@ -62,13 +62,16 @@
             Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
         End Get
     End Property
-
     Public ReadOnly Property CanFight As Boolean Implements ICharacter.CanFight
         Get
             Return WorldData.CharacterLocationEsteem.ReadForFromCharacter(Id).Any(Function(x) x.Item2 < 0)
         End Get
     End Property
-
+    Public ReadOnly Property Enemies As IEnumerable(Of ICharacter) Implements ICharacter.Enemies
+        Get
+            Return Array.Empty(Of ICharacter)
+        End Get
+    End Property
     Public Sub Move(route As IRoute) Implements ICharacter.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
     End Sub

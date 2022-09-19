@@ -1,6 +1,5 @@
 ﻿Module MoveProcessor
-    Friend Sub Run(world As IWorld)
-        Dim character = world.PlayerCharacter
+    Friend Sub Run(character As ICharacter)
         Dim routes = character.Location.Routes
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Which Way?[/]"}
         prompt.AddChoice(NeverMindText)
