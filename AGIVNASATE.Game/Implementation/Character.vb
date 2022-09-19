@@ -69,7 +69,9 @@
     End Property
     Public ReadOnly Property Enemies As IEnumerable(Of ICharacter) Implements ICharacter.Enemies
         Get
-            Return Array.Empty(Of ICharacter)
+            Return WorldData.CharacterLocationEsteem.ReadForFromCharacter(Id).
+                Where(Function(x) x.Item2 < 0).
+                Select(Function(x) Character.FromId(WorldData, x.Item1))
         End Get
     End Property
     Public Sub Move(route As IRoute) Implements ICharacter.Move
