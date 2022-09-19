@@ -2,6 +2,7 @@
     Inherits IBaseThingie
     ReadOnly Property Name As String
     ReadOnly Property Navigation As ICharacterNavigation
+    ReadOnly Property Statistics As ICharacterStatistics
 
     ReadOnly Property Satiety As (Long, Long)
     ReadOnly Property Health As (Long, Long)

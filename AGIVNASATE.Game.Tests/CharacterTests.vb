@@ -91,4 +91,11 @@
                 subject.Navigation.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheCharacterStatisticsSubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Statistics.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class
