@@ -46,4 +46,11 @@
                 worldData.Verify(Function(x) x.Character.ReadForLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheLocationNavigationSubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Navigation.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class

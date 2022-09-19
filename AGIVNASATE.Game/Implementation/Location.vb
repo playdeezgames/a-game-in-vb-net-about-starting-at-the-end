@@ -33,4 +33,10 @@
             Return WorldData.Character.ReadForLocation(Id).Select(Function(x) Character.FromId(WorldData, x))
         End Get
     End Property
+
+    Public ReadOnly Property Navigation As ILocationNavigation Implements ILocation.Navigation
+        Get
+            Return LocationNavigation.FromId(WorldData, Id)
+        End Get
+    End Property
 End Class
