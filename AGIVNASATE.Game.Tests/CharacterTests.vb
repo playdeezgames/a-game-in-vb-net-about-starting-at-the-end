@@ -1,10 +1,7 @@
 ﻿Public Class CharacterTests
-    Private Sub WithSubject(stuffToDo As Action(Of Mock(Of IWorldData), Long, ICharacter))
-        Const id = 1L
-        Dim worldData As New Mock(Of IWorldData)
-        Dim subject As ICharacter = New Character(worldData.Object, id)
-        stuffToDo(worldData, id, subject)
-        worldData.VerifyNoOtherCalls()
+    Inherits BaseGameTests(Of ICharacter)
+    Sub New()
+        MyBase.New(AddressOf Character.FromId)
     End Sub
     <Fact>
     Sub ShouldHoldAnIdNumber()
