@@ -1,10 +1,7 @@
 ﻿Public Class CharacterNavigationTests
-    Private Sub WithSubject(stuffToDo As Action(Of Mock(Of IWorldData), Long, ICharacterNavigation))
-        Const id = 1L
-        Dim worldData As New Mock(Of IWorldData)
-        Dim subject As ICharacterNavigation = New CharacterNavigation(worldData.Object, id)
-        stuffToDo(worldData, id, subject)
-        worldData.VerifyNoOtherCalls()
+    Inherits BaseGameTests(Of ICharacterNavigation)
+    Public Sub New()
+        MyBase.New(AddressOf CharacterNavigation.FromId)
     End Sub
     <Fact>
     Sub ShouldAttempToReadLocationForACharacterFromTheData()

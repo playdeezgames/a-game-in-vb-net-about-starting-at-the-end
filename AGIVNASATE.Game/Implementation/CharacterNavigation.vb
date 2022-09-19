@@ -6,8 +6,8 @@
         MyBase.New(worlddata, id)
     End Sub
 
-    Friend Shared Function FromId(worldData As IWorldData, id As Long) As ICharacterNavigation
-        Return New CharacterNavigation(worldData, id)
+    Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacterNavigation
+        Return If(id.HasValue, New CharacterNavigation(worldData, id.Value), Nothing)
     End Function
     Public ReadOnly Property Location As ILocation Implements ICharacterNavigation.Location
         Get
