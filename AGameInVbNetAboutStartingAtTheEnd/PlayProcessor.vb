@@ -21,9 +21,9 @@
             AnsiConsole.MarkupLine($"* Health: {health.Item1}/{health.Item2}")
             AnsiConsole.MarkupLine($"* Attack: {playerCharacter.Statistics.Attack}")
             AnsiConsole.MarkupLine($"* Defend: {playerCharacter.Statistics.Defend}")
-            If location.HasRoutes Then
+            If location.Navigation.HasRoutes Then
                 AnsiConsole.MarkupLine("Routes:")
-                For Each route In location.Routes
+                For Each route In location.Navigation.Routes
                     AnsiConsole.MarkupLine($"* {route.Name}")
                 Next
             End If
@@ -31,7 +31,7 @@
             If playerCharacter.Combat.CanFight Then
                 prompt.AddChoice(FightText)
             End If
-            If location.HasRoutes Then
+            If location.Navigation.HasRoutes Then
                 prompt.AddChoice(MoveText)
             End If
             prompt.AddChoice(AbandonGameText)
