@@ -11,8 +11,8 @@
                 Dim actual = subject.Satiety
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBe(0)
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 1L))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 2L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.HungerStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.MaximumSatietyStatisticTypeId))
             End Sub)
     End Sub
     <Fact>

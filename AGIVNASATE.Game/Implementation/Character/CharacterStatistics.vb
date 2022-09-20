@@ -15,38 +15,38 @@
             Return (maxSatiety - Hunger, MaximumSatiety)
         End Get
     End Property
-    Const MaximumSatietyStatisticTypeId = 1L
+    Public Const MaximumSatietyStatisticTypeId = 1L
     Private ReadOnly Property MaximumSatiety As Long
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, MaximumSatietyStatisticTypeId), 0)
         End Get
     End Property
-    Const MaximumHealthStatisticTypeId = 3L
+    Public Const MaximumHealthStatisticTypeId = 3L
     Private ReadOnly Property MaximumHealth As Long
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, MaximumHealthStatisticTypeId), 0)
         End Get
     End Property
-    Const HungerStatisticTypeId = 2L
+    Public Const HungerStatisticTypeId = 2L
     Private ReadOnly Property Hunger As Long
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, HungerStatisticTypeId), 0)
         End Get
     End Property
-    Const WoundsStatisticTypeId = 4L
+    Public Const WoundsStatisticTypeId = 4L
     Public ReadOnly Property Health As (Long, Long) Implements ICharacterStatistics.Health
         Get
             Dim maxHealth = MaximumHealth
             Return (maxHealth - Wounds, maxHealth)
         End Get
     End Property
-    Const AttackStatisticTypeId = 5L
+    Public Const AttackStatisticTypeId = 5L
     Public ReadOnly Property Attack As Long Implements ICharacterStatistics.Attack
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, AttackStatisticTypeId), 0)
         End Get
     End Property
-    Const DefendStatisticTypeId = 6L
+    Public Const DefendStatisticTypeId = 6L
     Public ReadOnly Property Defend As Long Implements ICharacterStatistics.Defend
         Get
             Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
