@@ -57,4 +57,10 @@
             Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
         End Get
     End Property
+
+    Public ReadOnly Property IsDead As Boolean Implements ICharacterStatistics.IsDead
+        Get
+            Return True
+        End Get
+    End Property
 End Class

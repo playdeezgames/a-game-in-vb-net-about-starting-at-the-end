@@ -25,11 +25,29 @@
     Sub ShouldAllowAttackingOfAnotherCharacter()
         WithSubject(
             Sub(worldData, id, subject)
-                Dim enemy As New Mock(Of ICharacter)
-                Dim actual = subject.Attack(enemy.Object)
+                Const enemyId = 2L
+                worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
+                Dim enemy = Character.FromId(worldData.Object, enemyId)
+                Dim actual = subject.Attack(enemy)
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBeTrue
-                enemy.VerifyNoOtherCalls()
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 5))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 6))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheCharacterStatisticsSubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Statistics.ShouldNotBeNull
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldAddWoundsToACharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const damage = 2L
+                subject.DoDamage(damage)
             End Sub)
     End Sub
 End Class

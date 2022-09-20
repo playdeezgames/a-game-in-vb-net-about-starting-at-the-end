@@ -11,8 +11,16 @@
     End Function
 
     Public Function Attack(defender As ICharacter) As (Long, Boolean) Implements ICharacterCombat.Attack
-        Return (0, True)
+        Dim attackStrength = Statistics.Attack
+        Dim defendStrength = defender.Statistics.Defend
+        Dim damage = Math.Max(0, attackStrength - defendStrength)
+        defender.Combat.DoDamage(damage)
+        Return (damage, defender.Statistics.IsDead)
     End Function
+
+    Public Sub DoDamage(damage As Long) Implements ICharacterCombat.DoDamage
+        'TODO
+    End Sub
 
     Public ReadOnly Property CanFight As Boolean Implements ICharacterCombat.CanFight
         Get
@@ -24,6 +32,12 @@
             Return WorldData.CharacterLocationEsteem.ReadForFromCharacter(Id).
                 Where(Function(x) x.Item2 < 0).
                 Select(Function(x) Character.FromId(WorldData, x.Item1))
+        End Get
+    End Property
+
+    Public ReadOnly Property Statistics As ICharacterStatistics Implements ICharacterCombat.Statistics
+        Get
+            Return CharacterStatistics.FromId(WorldData, Id)
         End Get
     End Property
 End Class

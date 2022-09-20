@@ -47,4 +47,11 @@
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 6L))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAnIndicationOfDeathForAGivenCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.IsDead.ShouldBeTrue
+            End Sub)
+    End Sub
 End Class
