@@ -31,11 +31,11 @@
                 Dim actual = subject.Attack(enemy)
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBeTrue
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 5))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 3))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 4))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 6))
-                worldData.Verify(Sub(x) x.CharacterStatistic.Write(enemyId, 4, 0))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.AttackStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.MaximumHealthStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.WoundsStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.DefendStatisticTypeId))
+                worldData.Verify(Sub(x) x.CharacterStatistic.Write(enemyId, CharacterStatistics.WoundsStatisticTypeId, 0))
             End Sub)
     End Sub
     <Fact>
@@ -52,8 +52,8 @@
                 Const damage = 2L
                 worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.DoDamage(damage)
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4))
-                worldData.Verify(Sub(x) x.CharacterStatistic.Write(id, 4, damage))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.WoundsStatisticTypeId))
+                worldData.Verify(Sub(x) x.CharacterStatistic.Write(id, CharacterStatistics.WoundsStatisticTypeId, damage))
             End Sub)
     End Sub
 End Class
