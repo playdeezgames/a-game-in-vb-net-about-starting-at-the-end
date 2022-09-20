@@ -9,6 +9,11 @@
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacterCombat
         Return If(id.HasValue, New CharacterCombat(worldData, id.Value), Nothing)
     End Function
+
+    Public Function Attack(defender As ICharacter) As (Long, Boolean) Implements ICharacterCombat.Attack
+        Return (0, True)
+    End Function
+
     Public ReadOnly Property CanFight As Boolean Implements ICharacterCombat.CanFight
         Get
             Return WorldData.CharacterLocationEsteem.ReadForFromCharacter(Id).Any(Function(x) x.Item2 < 0)

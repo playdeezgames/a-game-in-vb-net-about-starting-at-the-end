@@ -4,7 +4,7 @@
         If enemy Is Nothing Then
             Return
         End If
-        'TODO: attack and counter attack
+        AttackProcessor.Run(character, enemy)
     End Sub
     Private Function ChooseEnemy(enemies As IEnumerable(Of ICharacter)) As ICharacter
         Select Case enemies.Count

@@ -21,4 +21,15 @@
                 worldData.Verify(Function(x) x.CharacterLocationEsteem.ReadForFromCharacter(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldAllowAttackingOfAnotherCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Dim enemy As New Mock(Of ICharacter)
+                Dim actual = subject.Attack(enemy.Object)
+                actual.Item1.ShouldBe(0)
+                actual.Item2.ShouldBeTrue
+                enemy.VerifyNoOtherCalls()
+            End Sub)
+    End Sub
 End Class
