@@ -2,7 +2,6 @@
     Friend Sub Run(world As IWorld)
         Dim done = False
         While Not done
-            world.Save("temp.db")
             AnsiConsole.Clear()
             Dim playerCharacter = world.PlayerCharacter
             Dim location = playerCharacter.Navigation.Location
@@ -44,6 +43,7 @@
                 Case MoveText
                     MoveProcessor.Run(playerCharacter)
             End Select
+            done = playerCharacter.Statistics.IsDead
         End While
     End Sub
 End Module
