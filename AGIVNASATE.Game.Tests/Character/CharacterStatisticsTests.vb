@@ -51,7 +51,10 @@
     Sub ShouldGiveAnIndicationOfDeathForAGivenCharacter()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.IsDead.ShouldBeTrue
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 3))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4))
             End Sub)
     End Sub
 End Class

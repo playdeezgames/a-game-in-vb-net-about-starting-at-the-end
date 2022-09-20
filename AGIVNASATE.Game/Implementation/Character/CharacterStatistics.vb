@@ -55,7 +55,7 @@
 
     Public ReadOnly Property IsDead As Boolean Implements ICharacterStatistics.IsDead
         Get
-            Return True
+            Return Wounds >= MaximumHealth
         End Get
     End Property
 
