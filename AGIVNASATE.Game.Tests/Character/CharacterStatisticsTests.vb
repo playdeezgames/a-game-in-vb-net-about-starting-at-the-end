@@ -23,8 +23,8 @@
                 Dim actual = subject.Health
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBe(0)
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 3L))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.MaximumHealthStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.WoundsStatisticTypeId))
             End Sub)
     End Sub
     <Fact>
@@ -34,7 +34,7 @@
                 worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 Dim actual = subject.Attack
                 actual.ShouldBe(0)
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 5L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.AttackStatisticTypeId))
             End Sub)
     End Sub
     <Fact>
@@ -44,7 +44,7 @@
                 worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 Dim actual = subject.Defend
                 actual.ShouldBe(0)
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 6L))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.DefendStatisticTypeId))
             End Sub)
     End Sub
     <Fact>
@@ -53,8 +53,8 @@
             Sub(worldData, id, subject)
                 worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.IsDead.ShouldBeTrue
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 3))
-                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.MaximumHealthStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.WoundsStatisticTypeId))
             End Sub)
     End Sub
 End Class
