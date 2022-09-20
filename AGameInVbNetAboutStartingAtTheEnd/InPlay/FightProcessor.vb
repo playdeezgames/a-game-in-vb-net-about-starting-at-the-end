@@ -5,6 +5,7 @@
             Return
         End If
         AttackProcessor.Run(character, enemy)
+        CounterAttackProcessor.Run(character)
     End Sub
     Private Function ChooseEnemy(enemies As IEnumerable(Of ICharacter)) As ICharacter
         Select Case enemies.Count

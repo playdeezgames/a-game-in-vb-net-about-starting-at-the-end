@@ -10,4 +10,8 @@ Public Class World
             Return Character.FromId(WorldData, WorldData.Player.ReadCharacterId())
         End Get
     End Property
+
+    Public Sub Save(filename As String) Implements IWorld.Save
+        WorldData.Save(filename)
+    End Sub
 End Class

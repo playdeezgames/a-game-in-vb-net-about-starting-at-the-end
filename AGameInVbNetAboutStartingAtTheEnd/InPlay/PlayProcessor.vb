@@ -2,6 +2,7 @@
     Friend Sub Run(world As IWorld)
         Dim done = False
         While Not done
+            world.Save("temp.db")
             AnsiConsole.Clear()
             Dim playerCharacter = world.PlayerCharacter
             Dim location = playerCharacter.Navigation.Location

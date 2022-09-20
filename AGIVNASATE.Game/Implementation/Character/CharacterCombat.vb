@@ -19,7 +19,9 @@
     End Function
 
     Public Sub DoDamage(damage As Long) Implements ICharacterCombat.DoDamage
-        Statistics.Wounds += damage
+        Dim wounds = Statistics.Wounds
+        wounds += damage
+        Statistics.Wounds = wounds
     End Sub
 
     Public ReadOnly Property CanFight As Boolean Implements ICharacterCombat.CanFight
