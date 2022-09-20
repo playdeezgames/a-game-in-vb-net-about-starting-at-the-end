@@ -33,6 +33,8 @@
                 actual.Item2.ShouldBeTrue
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 5))
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 6))
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, 4))
+                worldData.Verify(Sub(x) x.CharacterStatistic.Write(enemyId, 4, 0))
             End Sub)
     End Sub
     <Fact>
@@ -47,7 +49,10 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const damage = 2L
+                worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.DoDamage(damage)
+                worldData.Verify(Function(x) x.CharacterStatistic.Read(id, 4))
+                worldData.Verify(Sub(x) x.CharacterStatistic.Write(id, 4, damage))
             End Sub)
     End Sub
 End Class

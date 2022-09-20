@@ -6,7 +6,21 @@
         MyBase.New(store)
     End Sub
 
+    Public Sub Write(characterId As Long, statisticTypeId As Long, statisticValue As Long) Implements ICharacterStatisticData.Write
+        Store.ReplaceRecord(
+            AddressOf NoInitializer,
+            Tables.CharacterStatistics,
+            (Columns.CharacterIdColumn, characterId),
+            (Columns.StatisticTypeIdColumn, statisticTypeId),
+            (Columns.StatisticValueColumn, statisticValue))
+    End Sub
+
     Public Function Read(characterId As Long, statisticTypeId As Long) As Long? Implements ICharacterStatisticData.Read
-        Return Store.ReadColumnValue(Of Long, Long, Long)(AddressOf NoInitializer, Tables.CharacterStatistics, Columns.StatisticValueColumn, (Columns.CharacterIdColumn, characterId), (Columns.StatisticTypeIdColumn, statisticTypeId))
+        Return Store.ReadColumnValue(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Tables.CharacterStatistics,
+            Columns.StatisticValueColumn,
+            (Columns.CharacterIdColumn, characterId),
+            (Columns.StatisticTypeIdColumn, statisticTypeId))
     End Function
 End Class

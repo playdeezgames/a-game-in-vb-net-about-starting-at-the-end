@@ -11,7 +11,7 @@
             Sub(store, subject)
                 Const characterId = 1L
                 Const statisticTypeId = 2L
-                subject.Read(characterId, statisticTypeId)
+                subject.Read(characterId, statisticTypeId).ShouldBeNull
                 store.Verify(
                     Function(x) x.ReadColumnValue(Of Long, Long, Long)(
                     It.IsAny(Of Action),
@@ -19,6 +19,22 @@
                     Columns.StatisticValueColumn,
                     (Columns.CharacterIdColumn, characterId),
                     (Columns.StatisticTypeIdColumn, statisticTypeId)))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldWriteAStatisticValueToTheStoreForAGivenCharactersGivenStatisticType()
+        WithCharacterStatisticData(
+            Sub(store, subject)
+                Const characterId = 1L
+                Const statisticTypeId = 2L
+                Const statisticValue = 3L
+                subject.Write(characterId, statisticTypeId, statisticValue)
+                store.Verify(Sub(x) x.ReplaceRecord(
+                             It.IsAny(Of Action),
+                             Tables.CharacterStatistics,
+                             (Columns.CharacterIdColumn, characterId),
+                             (Columns.StatisticTypeIdColumn, statisticTypeId),
+                             (Columns.StatisticValueColumn, statisticValue)))
             End Sub)
     End Sub
 End Class

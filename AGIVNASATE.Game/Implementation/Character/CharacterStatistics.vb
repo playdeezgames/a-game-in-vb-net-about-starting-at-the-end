@@ -34,11 +34,6 @@
         End Get
     End Property
     Const WoundsStatisticTypeId = 4L
-    Private ReadOnly Property Wounds As Long
-        Get
-            Return If(WorldData.CharacterStatistic.Read(Id, WoundsStatisticTypeId), 0)
-        End Get
-    End Property
     Public ReadOnly Property Health As (Long, Long) Implements ICharacterStatistics.Health
         Get
             Dim maxHealth = MaximumHealth
@@ -62,5 +57,14 @@
         Get
             Return True
         End Get
+    End Property
+
+    Public Property Wounds As Long Implements ICharacterStatistics.Wounds
+        Get
+            Return If(WorldData.CharacterStatistic.Read(Id, WoundsStatisticTypeId), 0)
+        End Get
+        Set(value As Long)
+            WorldData.CharacterStatistic.Write(Id, WoundsStatisticTypeId, value)
+        End Set
     End Property
 End Class
