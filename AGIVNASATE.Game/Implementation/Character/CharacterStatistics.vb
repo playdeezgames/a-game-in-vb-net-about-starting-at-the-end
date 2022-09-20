@@ -12,7 +12,7 @@
     Public ReadOnly Property Satiety As (Long, Long) Implements ICharacterStatistics.Satiety
         Get
             Dim maxSatiety = MaximumSatiety
-            Return (maxSatiety - Hunger, MaximumSatiety)
+            Return (Math.Max(0L, maxSatiety - Hunger), MaximumSatiety)
         End Get
     End Property
     Public Const MaximumSatietyStatisticTypeId = 1L
@@ -37,7 +37,7 @@
     Public ReadOnly Property Health As (Long, Long) Implements ICharacterStatistics.Health
         Get
             Dim maxHealth = MaximumHealth
-            Return (maxHealth - Wounds, maxHealth)
+            Return (Math.Max(0L, maxHealth - Wounds), maxHealth)
         End Get
     End Property
     Public Const AttackStatisticTypeId = 5L
