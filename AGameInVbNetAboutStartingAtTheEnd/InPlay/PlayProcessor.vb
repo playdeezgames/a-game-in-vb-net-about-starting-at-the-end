@@ -26,6 +26,9 @@
                 prompt.AddChoice(MoveText)
             End If
             prompt.AddChoice(StatisticsText)
+            If playerCharacter.HasInventory Then
+                prompt.AddChoice(InventoryText)
+            End If
             prompt.AddChoice(AbandonGameText)
             Select Case AnsiConsole.Prompt(prompt)
                 Case AbandonGameText

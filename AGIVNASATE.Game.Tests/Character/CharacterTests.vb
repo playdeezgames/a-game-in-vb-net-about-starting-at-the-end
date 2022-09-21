@@ -40,4 +40,11 @@
                 subject.Combat.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldCheckForThePresenceOfItemsInTheCharactersInventory()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.HasInventory.ShouldBeFalse
+            End Sub)
+    End Sub
 End Class

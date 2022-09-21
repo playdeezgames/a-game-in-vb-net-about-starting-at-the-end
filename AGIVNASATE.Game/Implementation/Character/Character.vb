@@ -28,6 +28,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasInventory As Boolean Implements ICharacter.HasInventory
+        Get
+            Return False
+        End Get
+    End Property
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function
