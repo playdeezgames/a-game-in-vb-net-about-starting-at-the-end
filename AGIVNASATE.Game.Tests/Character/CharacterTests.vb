@@ -44,7 +44,9 @@
     Sub ShouldCheckForThePresenceOfItemsInTheCharactersInventory()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterItem.ReadCountForCharacter(It.IsAny(Of Long)))
                 subject.HasInventory.ShouldBeFalse
+                worldData.Verify(Function(x) x.CharacterItem.ReadCountForCharacter(id))
             End Sub)
     End Sub
 End Class

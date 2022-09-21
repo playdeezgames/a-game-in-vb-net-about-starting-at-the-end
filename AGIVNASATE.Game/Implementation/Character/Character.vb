@@ -30,7 +30,7 @@
 
     Public ReadOnly Property HasInventory As Boolean Implements ICharacter.HasInventory
         Get
-            Return False
+            Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L
         End Get
     End Property
 

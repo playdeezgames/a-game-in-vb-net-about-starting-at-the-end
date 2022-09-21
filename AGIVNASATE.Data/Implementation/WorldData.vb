@@ -4,6 +4,7 @@
     Sub New(store As IStore)
         Me.Store = store
         Character = New CharacterData(store)
+        CharacterItem = New CharacterItemData(store)
         CharacterLocationEsteem = New CharacterLocationEsteemData(store)
         CharacterStatistic = New CharacterStatisticData(store)
         Location = New LocationData(store)
@@ -17,6 +18,7 @@
     Public ReadOnly Property Route As IRouteData Implements IWorldData.Route
     Public ReadOnly Property CharacterStatistic As ICharacterStatisticData Implements IWorldData.CharacterStatistic
     Public ReadOnly Property CharacterLocationEsteem As ICharacterLocationEsteemData Implements IWorldData.CharacterLocationEsteem
+    Public ReadOnly Property CharacterItem As ICharacterItemData Implements IWorldData.CharacterItem
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)
