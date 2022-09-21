@@ -9,4 +9,8 @@
         prompt.AddChoices(NoText, YesText)
         Return AnsiConsole.Prompt(prompt) = YesText
     End Function
+    Function CharacterAndHealth(character As ICharacter) As String
+        Dim health = character.Statistics.Health
+        Return $"{character.Name} ({health.Item1}/{health.Item2})"
+    End Function
 End Module
