@@ -10,4 +10,12 @@
             Views.CharacterItems,
             (Columns.CharacterIdColumn, characterId))
     End Function
+
+    Public Function ReadForCharacter(characterId As Long) As IEnumerable(Of Tuple(Of Long, Long)) Implements ICharacterItemData.ReadForCharacter
+        Return Store.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Views.CharacterItems,
+            (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
+            (Columns.CharacterIdColumn, characterId))
+    End Function
 End Class

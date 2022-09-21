@@ -14,4 +14,18 @@
                 store.Verify(Function(x) x.ReadCountForColumnValue(It.IsAny(Of Action), Views.CharacterItems, (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadItemsFromACharactersInventory()
+        WithCharacterItemData(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.ReadForCharacter(characterId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+                        It.IsAny(Of Action),
+                        Views.CharacterItems,
+                        (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
 End Class

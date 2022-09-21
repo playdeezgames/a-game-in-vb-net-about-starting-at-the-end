@@ -4,6 +4,8 @@
     Public Const EsteemColumn = "Esteem"
     Public Const FromCharacterIdColumn = "FromCharacterId"
     Public Const FromLocationIdColumn = "FromLocationId"
+    Public Const ItemIdColumn = "ItemId"
+    Public Const ItemTypeIdColumn = "ItemTypeId"
     Public Const LocationIdColumn = "LocationId"
     Public Const LocationNameColumn = "LocationName"
     Public Const PlayerIdColumn = "PlayerId"

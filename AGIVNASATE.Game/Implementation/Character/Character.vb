@@ -36,7 +36,10 @@
 
     Public ReadOnly Property ItemStacks As IReadOnlyDictionary(Of IItemType, IEnumerable(Of IItem)) Implements ICharacter.ItemStacks
         Get
-            Return Nothing
+            Return WorldData.CharacterItem.ReadForCharacter(Id).
+                GroupBy(Function(x) x.Item2).
+                ToDictionary(Function(x) ItemType.FromId(WorldData, x.Key),
+                             Function(x) x.Select(Function(y) Item.FromId(WorldData, y.Item1)))
         End Get
     End Property
 
