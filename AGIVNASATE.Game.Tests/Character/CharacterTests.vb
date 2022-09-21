@@ -49,4 +49,11 @@
                 worldData.Verify(Function(x) x.CharacterItem.ReadCountForCharacter(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveCategorizedItemsInTheCharacatersInventory()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.ItemStacks.ShouldBeNull
+            End Sub)
+    End Sub
 End Class

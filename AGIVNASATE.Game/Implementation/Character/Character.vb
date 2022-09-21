@@ -34,6 +34,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property ItemStacks As IReadOnlyDictionary(Of IItemType, IEnumerable(Of IItem)) Implements ICharacter.ItemStacks
+        Get
+            Return Nothing
+        End Get
+    End Property
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function
