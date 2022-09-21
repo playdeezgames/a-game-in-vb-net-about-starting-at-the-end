@@ -7,7 +7,7 @@
     Public Function ReadCountForCharacter(characterId As Long) As Long Implements ICharacterItemData.ReadCountForCharacter
         Return Store.ReadCountForColumnValue(
             AddressOf NoInitializer,
-            Tables.CharacterItems,
+            Views.CharacterItems,
             (Columns.CharacterIdColumn, characterId))
     End Function
 End Class

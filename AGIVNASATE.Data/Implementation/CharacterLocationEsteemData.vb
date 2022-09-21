@@ -7,7 +7,7 @@
     Public Function ReadForFromCharacter(characterId As Long) As IEnumerable(Of Tuple(Of Long, Long)) Implements ICharacterLocationEsteemData.ReadForFromCharacter
         Return Store.ReadRecordsWithColumnValue(Of Long, Long, Long)(
             AddressOf NoInitializer,
-            Tables.CharacterLocationEsteems,
+            Views.CharacterLocationEsteems,
             (Columns.ToCharacterIdColumn, Columns.EsteemColumn),
             (Columns.FromCharacterIdColumn, characterId))
     End Function

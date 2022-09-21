@@ -11,7 +11,7 @@
             Sub(store, subject)
                 Const characterId = 1L
                 subject.ReadCountForCharacter(characterId).ShouldBe(0)
-                store.Verify(Function(x) x.ReadCountForColumnValue(It.IsAny(Of Action), Tables.CharacterItems, (Columns.CharacterIdColumn, characterId)))
+                store.Verify(Function(x) x.ReadCountForColumnValue(It.IsAny(Of Action), Views.CharacterItems, (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
 End Class

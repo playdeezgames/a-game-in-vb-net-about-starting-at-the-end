@@ -14,7 +14,7 @@
                 store.Verify(
                     Function(x) x.ReadRecordsWithColumnValue(Of Long, Long, Long)(
                         It.IsAny(Of Action),
-                        Tables.CharacterLocationEsteems,
+                        Views.CharacterLocationEsteems,
                         (Columns.ToCharacterIdColumn, Columns.EsteemColumn),
                         (Columns.FromCharacterIdColumn, characterId)))
             End Sub)
