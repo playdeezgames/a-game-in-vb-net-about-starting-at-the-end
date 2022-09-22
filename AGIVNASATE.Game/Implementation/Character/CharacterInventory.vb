@@ -10,6 +10,10 @@
         Return If(id.HasValue, New CharacterInventory(worldData, id.Value), Nothing)
     End Function
 
+    Public Function ItemsOfItemType(itemType As IItemType) As IEnumerable(Of IItem) Implements ICharacterInventory.ItemsOfItemType
+        Return WorldData.CharacterItem.ReadForItemType(Id, itemType.Id).Select(Function(x) Item.FromId(WorldData, x))
+    End Function
+
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
         Get
             Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L

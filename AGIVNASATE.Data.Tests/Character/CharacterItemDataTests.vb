@@ -28,4 +28,13 @@
                         (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRetrieveTheItemsFromAGivenCharactersInventoryOfAGivenItemTYpe()
+        WithCharacterItemData(
+            Sub(store, subject)
+                Const characterId = 1L
+                Const itemTypeId = 2L
+                subject.ReadForItemType(characterId, itemTypeId).ShouldBeNull
+            End Sub)
+    End Sub
 End Class

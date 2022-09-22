@@ -18,4 +18,8 @@
             (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
             (Columns.CharacterIdColumn, characterId))
     End Function
+
+    Public Function ReadForItemType(characterId As Long, itemTypeId As Long) As IEnumerable(Of Long) Implements ICharacterItemData.ReadForItemType
+        Throw New NotImplementedException()
+    End Function
 End Class
