@@ -5,7 +5,7 @@
             AnsiConsole.Clear()
             Dim prompt As New SelectionPrompt(Of String) With {.Title = $"{character.Name}'s Inventory:"}
             prompt.AddChoice(NeverMindText)
-            Dim table = character.ItemStacks.
+            Dim table = character.Inventory.ItemStacks.
                 ToDictionary(
                     Function(x) $"{x.Key.Name}(x{x.Value.Count})",
                     Function(x) x.Key)

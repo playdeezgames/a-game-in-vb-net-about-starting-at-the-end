@@ -26,7 +26,7 @@
                 prompt.AddChoice(MoveText)
             End If
             prompt.AddChoice(StatisticsText)
-            If playerCharacter.HasInventory Then
+            If playerCharacter.Inventory.HasInventory Then
                 prompt.AddChoice(InventoryText)
             End If
             prompt.AddChoice(AbandonGameText)

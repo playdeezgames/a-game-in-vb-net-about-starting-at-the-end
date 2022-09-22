@@ -28,21 +28,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property HasInventory As Boolean Implements ICharacter.HasInventory
-        Get
-            Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L
-        End Get
-    End Property
-
-    Public ReadOnly Property ItemStacks As IReadOnlyDictionary(Of IItemType, IEnumerable(Of IItem)) Implements ICharacter.ItemStacks
-        Get
-            Return WorldData.CharacterItem.ReadForCharacter(Id).
-                GroupBy(Function(x) x.Item2).
-                ToDictionary(Function(x) ItemType.FromId(WorldData, x.Key),
-                             Function(x) x.Select(Function(y) Item.FromId(WorldData, y.Item1)))
-        End Get
-    End Property
-
     Public ReadOnly Property Inventory As ICharacterInventory Implements ICharacter.Inventory
         Get
             Return CharacterInventory.FromId(WorldData, Id)
