@@ -7,6 +7,7 @@
         CharacterItem = New CharacterItemData(store)
         CharacterLocationEsteem = New CharacterLocationEsteemData(store)
         CharacterStatistic = New CharacterStatisticData(store)
+        ItemType = New ItemTypeData(store)
         Location = New LocationData(store)
         Player = New PlayerData(store)
         Route = New RouteData(store)
@@ -19,6 +20,7 @@
     Public ReadOnly Property CharacterStatistic As ICharacterStatisticData Implements IWorldData.CharacterStatistic
     Public ReadOnly Property CharacterLocationEsteem As ICharacterLocationEsteemData Implements IWorldData.CharacterLocationEsteem
     Public ReadOnly Property CharacterItem As ICharacterItemData Implements IWorldData.CharacterItem
+    Public ReadOnly Property ItemType As IItemTypeData Implements IWorldData.ItemType
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

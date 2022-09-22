@@ -7,6 +7,7 @@ Public Class WorldDataTests
         subject.CharacterItem.ShouldNotBeNull
         subject.CharacterLocationEsteem.ShouldNotBeNull
         subject.CharacterStatistic.ShouldNotBeNull
+        subject.ItemType.ShouldNotBeNull
         subject.Location.ShouldNotBeNull
         subject.Player.ShouldNotBeNull
         subject.Route.ShouldNotBeNull
