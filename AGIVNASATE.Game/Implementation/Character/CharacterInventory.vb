@@ -10,7 +10,7 @@
         Return If(id.HasValue, New CharacterInventory(worldData, id.Value), Nothing)
     End Function
 
-    Public ReadOnly Property HasInventory As Boolean Implements ICharacterInventory.HasInventory
+    Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
         Get
             Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L
         End Get
