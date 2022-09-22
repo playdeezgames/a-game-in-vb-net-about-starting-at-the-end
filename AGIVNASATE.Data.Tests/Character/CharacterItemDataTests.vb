@@ -29,12 +29,19 @@
             End Sub)
     End Sub
     <Fact>
-    Sub ShouldRetrieveTheItemsFromAGivenCharactersInventoryOfAGivenItemTYpe()
+    Sub ShouldRetrieveTheItemsFromAGivenCharactersInventoryOfAGivenItemType()
         WithCharacterItemData(
             Sub(store, subject)
                 Const characterId = 1L
                 Const itemTypeId = 2L
                 subject.ReadForItemType(characterId, itemTypeId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadRecordsWithColumnValues(Of Long, Long, Long)(
+                        It.IsAny(Of Action),
+                        Views.CharacterItems,
+                        Columns.ItemIdColumn,
+                        (Columns.CharacterIdColumn, characterId),
+                        (Columns.ItemTypeIdColumn, itemTypeId)))
             End Sub)
     End Sub
 End Class

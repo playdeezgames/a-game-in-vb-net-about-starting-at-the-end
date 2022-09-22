@@ -20,6 +20,11 @@
     End Function
 
     Public Function ReadForItemType(characterId As Long, itemTypeId As Long) As IEnumerable(Of Long) Implements ICharacterItemData.ReadForItemType
-        Throw New NotImplementedException()
+        Return Store.ReadRecordsWithColumnValues(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Views.CharacterItems,
+            Columns.ItemIdColumn,
+            (Columns.CharacterIdColumn, characterId),
+            (Columns.ItemTypeIdColumn, itemTypeId))
     End Function
 End Class
