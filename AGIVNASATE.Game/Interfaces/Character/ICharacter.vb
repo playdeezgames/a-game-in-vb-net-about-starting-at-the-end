@@ -4,6 +4,7 @@
     ReadOnly Property Navigation As ICharacterNavigation
     ReadOnly Property Statistics As ICharacterStatistics
     ReadOnly Property Combat As ICharacterCombat
+    ReadOnly Property Inventory As ICharacterInventory
     ReadOnly Property HasInventory As Boolean
     ReadOnly Property ItemStacks As IReadOnlyDictionary(Of IItemType, IEnumerable(Of IItem))
 End Interface

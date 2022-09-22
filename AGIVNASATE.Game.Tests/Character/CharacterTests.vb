@@ -41,6 +41,13 @@
             End Sub)
     End Sub
     <Fact>
+    Sub ShouldGiveAccessToTheCharacterInventorySubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Inventory.ShouldNotBeNull
+            End Sub)
+    End Sub
+    <Fact>
     Sub ShouldCheckForThePresenceOfItemsInTheCharactersInventory()
         WithSubject(
             Sub(worldData, id, subject)

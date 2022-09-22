@@ -43,6 +43,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Inventory As ICharacterInventory Implements ICharacter.Inventory
+        Get
+            Return CharacterInventory.FromId(WorldData, Id)
+        End Get
+    End Property
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function
