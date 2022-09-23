@@ -11,6 +11,7 @@ Public Class WorldDataTests
         subject.InventoryItem.ShouldNotBeNull
         subject.ItemType.ShouldNotBeNull
         subject.Location.ShouldNotBeNull
+        subject.LocationItem.ShouldNotBeNull
         subject.Player.ShouldNotBeNull
         subject.Route.ShouldNotBeNull
         store.VerifyNoOtherCalls()

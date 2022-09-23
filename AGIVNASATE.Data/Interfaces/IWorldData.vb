@@ -7,6 +7,7 @@ Public Interface IWorldData
     ReadOnly Property InventoryItem As IInventoryItemData
     ReadOnly Property ItemType As IItemTypeData
     ReadOnly Property Location As ILocationData
+    ReadOnly Property LocationItem As ILocationItemData
     ReadOnly Property Player As IPlayerData
     ReadOnly Property Route As IRouteData
     Sub Save(filename As String)
