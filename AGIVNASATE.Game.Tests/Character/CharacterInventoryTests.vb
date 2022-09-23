@@ -47,9 +47,14 @@
                 Const locationId = 4L
                 worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long))).Returns(New List(Of Long) From {itemId})
                 worldData.Setup(Function(x) x.Character.ReadLocation(id)).Returns(locationId)
+                worldData.Setup(Function(x) x.Inventory.ReadForLocation(It.IsAny(Of Long)))
+                worldData.Setup(Sub(x) x.InventoryItem.Write(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.DropItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
                 worldData.Verify(Function(x) x.Character.ReadLocation(id))
                 worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
+                worldData.Verify(Function(x) x.Inventory.ReadForLocation(locationId))
+                worldData.Verify(Function(x) x.Inventory.CreateForLocation(locationId))
+                worldData.Verify(Sub(x) x.InventoryItem.Write(itemId, 0))
             End Sub)
     End Sub
 End Class

@@ -7,7 +7,11 @@
     End Sub
 
     Public Sub AddItem(item As IItem) Implements ILocationInventory.AddItem
-        'TODO
+        Dim inventoryId As Long? = WorldData.Inventory.ReadForLocation(Id)
+        If Not inventoryId.HasValue Then
+            inventoryId = WorldData.Inventory.CreateForLocation(Id)
+        End If
+        WorldData.InventoryItem.Write(item.Id, inventoryId.Value)
     End Sub
 
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ILocationInventory

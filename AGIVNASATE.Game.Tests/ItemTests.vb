@@ -6,7 +6,7 @@
     End Sub
 
     <Fact>
-    Sub ShouldCreateAnItemType()
+    Sub ShouldCreateAnItem()
         WithSubject(
             Sub(worldData, id, subject)
                 subject.ShouldNotBeNull

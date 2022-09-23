@@ -4,6 +4,7 @@
     Public Const EsteemColumn = "Esteem"
     Public Const FromCharacterIdColumn = "FromCharacterId"
     Public Const FromLocationIdColumn = "FromLocationId"
+    Public Const InventoryIdColumn = "InventoryId"
     Public Const ItemIdColumn = "ItemId"
     Public Const ItemTypeIdColumn = "ItemTypeId"
     Public Const ItemTypeNameColumn = "ItemTypeName"

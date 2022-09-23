@@ -3,6 +3,8 @@ Public Interface IWorldData
     ReadOnly Property CharacterItem As ICharacterItemData
     ReadOnly Property CharacterLocationEsteem As ICharacterLocationEsteemData
     ReadOnly Property CharacterStatistic As ICharacterStatisticData
+    ReadOnly Property Inventory As IInventoryData
+    ReadOnly Property InventoryItem As IInventoryItemData
     ReadOnly Property ItemType As IItemTypeData
     ReadOnly Property Location As ILocationData
     ReadOnly Property Player As IPlayerData

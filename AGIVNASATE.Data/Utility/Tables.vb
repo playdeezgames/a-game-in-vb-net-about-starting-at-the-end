@@ -1,6 +1,8 @@
 ﻿Public Module Tables
     Public Const Characters = "Characters"
     Public Const CharacterStatistics = "CharacterStatistics"
+    Public Const Inventories = "Inventories"
+    Public Const InventoryItems = "InventoryItems"
     Public Const ItemTypes = "ItemTypes"
     Public Const Locations = "Locations"
     Public Const Players = "Players"
