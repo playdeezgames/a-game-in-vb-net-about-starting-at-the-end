@@ -43,8 +43,12 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
-                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
+                Const itemId = 3L
+                Const locationId = 4L
+                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long))).Returns(New List(Of Long) From {itemId})
+                worldData.Setup(Function(x) x.Character.ReadLocation(id)).Returns(locationId)
                 subject.DropItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
+                worldData.Verify(Function(x) x.Character.ReadLocation(id))
                 worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
             End Sub)
     End Sub

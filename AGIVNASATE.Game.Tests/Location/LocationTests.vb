@@ -35,4 +35,11 @@
                 subject.Navigation.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheLocationInventorySubobject()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Inventory.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class

@@ -22,7 +22,7 @@
     End Sub
 
     Private Sub DropItem(itemToDrop As IItem)
-        Throw New NotImplementedException()
+        Character.FromId(WorldData, Id).Navigation.Location.Inventory.AddItem(itemToDrop)
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems

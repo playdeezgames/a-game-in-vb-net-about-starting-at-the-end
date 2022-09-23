@@ -26,4 +26,10 @@
             Return LocationNavigation.FromId(WorldData, Id)
         End Get
     End Property
+
+    Public ReadOnly Property Inventory As ILocationInventory Implements ILocation.Inventory
+        Get
+            Return LocationInventory.FromId(WorldData, Id)
+        End Get
+    End Property
 End Class
