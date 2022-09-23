@@ -17,4 +17,8 @@
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ILocationInventory
         Return If(id.HasValue, New LocationInventory(worldData, id.Value), Nothing)
     End Function
+
+    Public Function HasItems() As Boolean Implements ILocationInventory.HasItems
+        Return False
+    End Function
 End Class

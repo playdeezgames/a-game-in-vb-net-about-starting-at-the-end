@@ -29,6 +29,9 @@
             If playerCharacter.Inventory.HasItems Then
                 prompt.AddChoice(InventoryText)
             End If
+            If playerCharacter.Navigation.Location.Inventory.HasItems Then
+                prompt.AddChoice(GroundText)
+            End If
             prompt.AddChoice(AbandonGameText)
             Select Case AnsiConsole.Prompt(prompt)
                 Case AbandonGameText

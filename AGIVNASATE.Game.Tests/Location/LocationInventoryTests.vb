@@ -16,4 +16,11 @@
                 worldData.Verify(Sub(x) x.InventoryItem.Write(itemId, inventoryId))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldIndicateThePresenceOfItemsInAGivenLocation()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.HasItems.ShouldBeFalse
+            End Sub)
+    End Sub
 End Class
