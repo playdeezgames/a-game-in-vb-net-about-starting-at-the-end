@@ -38,4 +38,12 @@
                 worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldDropAllItemsOfAGivenTypeOntoTheFloor()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const itemTypeId = 2L
+                subject.DropItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
+            End Sub)
+    End Sub
 End Class

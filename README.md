@@ -7,6 +7,9 @@ XX A Game in VB.NET About Starting at the End #JernJam
 * 03 - 20220918
 * 04 - 20220919
 * 05 - 20220920
+* 06 - 20220921
+* 07 - 20220922
+* 08 - 20220923
 
 # Randomly Chosen Design Decisions
 
