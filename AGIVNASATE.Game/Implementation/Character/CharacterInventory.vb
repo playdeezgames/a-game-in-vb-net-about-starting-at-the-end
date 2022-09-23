@@ -15,7 +15,14 @@
     End Function
 
     Public Sub DropItemsOfItemType(itemType As IItemType) Implements ICharacterInventory.DropItemsOfItemType
-        'todo: do nothing so that the test passe
+        Dim itemsToDrop = ItemsOfItemType(itemType)
+        For Each itemToDrop In itemsToDrop
+            DropItem(itemToDrop)
+        Next
+    End Sub
+
+    Private Sub DropItem(itemToDrop As IItem)
+        Throw New NotImplementedException()
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems

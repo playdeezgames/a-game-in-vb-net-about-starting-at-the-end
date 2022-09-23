@@ -43,7 +43,9 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.DropItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
+                worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
             End Sub)
     End Sub
 End Class
