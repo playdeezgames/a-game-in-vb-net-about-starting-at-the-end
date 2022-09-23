@@ -19,6 +19,6 @@
     End Function
 
     Public Function HasItems() As Boolean Implements ILocationInventory.HasItems
-        Return False
+        Return WorldData.LocationItem.ReadCountForLocation(Id) > 0L
     End Function
 End Class

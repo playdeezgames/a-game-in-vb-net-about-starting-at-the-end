@@ -20,7 +20,9 @@
     Sub ShouldIndicateThePresenceOfItemsInAGivenLocation()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.LocationItem.ReadCountForLocation(It.IsAny(Of Long)))
                 subject.HasItems.ShouldBeFalse
+                worldData.Verify(Function(x) x.LocationItem.ReadCountForLocation(id))
             End Sub)
     End Sub
 End Class
