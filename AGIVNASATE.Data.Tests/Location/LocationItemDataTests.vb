@@ -6,11 +6,12 @@
         store.VerifyNoOtherCalls()
     End Sub
     <Fact>
-    Sub Should()
+    Sub ShouldDetermineHowMany()
         WithLocationItemData(
             Sub(store, subject)
                 Const locationId = 1L
                 subject.ReadCountForLocation(locationId).ShouldBe(0)
+                store.Verify(Function(x) x.ReadCountForColumnValue(It.IsAny(Of Action), Views.LocationItems, (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
 End Class

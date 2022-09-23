@@ -7,6 +7,9 @@
     End Sub
 
     Public Function ReadCountForLocation(locationId As Long) As Long Implements ILocationItemData.ReadCountForLocation
-        Return 0
+        Return Store.ReadCountForColumnValue(
+            AddressOf NoInitializer,
+            Views.LocationItems,
+            (Columns.LocationIdColumn, locationId))
     End Function
 End Class
