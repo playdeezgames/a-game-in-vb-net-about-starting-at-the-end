@@ -20,4 +20,13 @@
             (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
             (Columns.LocationIdColumn, locationId))
     End Function
+
+    Public Function ReadForItemType(locationId As Long, itemTypeId As Long) As IEnumerable(Of Long) Implements ILocationItemData.ReadForItemType
+        Return Store.ReadRecordsWithColumnValues(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Views.LocationItems,
+            Columns.ItemIdColumn,
+            (Columns.LocationIdColumn, locationId),
+            (Columns.ItemTypeIdColumn, itemTypeId))
+    End Function
 End Class

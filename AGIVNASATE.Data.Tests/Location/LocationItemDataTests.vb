@@ -28,4 +28,19 @@
                         (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheItemsOfAGivenItemTypeAtAGivenLocation()
+        WithLocationItemData(
+            Sub(store, subject)
+                Const locationId = 1L
+                Const itemTypeId = 2L
+                subject.ReadForItemType(locationId, itemTypeId)
+                store.Verify(Function(x) x.ReadRecordsWithColumnValues(Of Long, Long, Long)(
+                    It.IsAny(Of Action),
+                    Views.LocationItems,
+                    Columns.ItemIdColumn,
+                    (Columns.LocationIdColumn, locationId),
+                    (Columns.ItemTypeIdColumn, itemTypeId)))
+            End Sub)
+    End Sub
 End Class

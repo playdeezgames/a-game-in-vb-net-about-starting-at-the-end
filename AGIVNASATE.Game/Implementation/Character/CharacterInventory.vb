@@ -26,7 +26,7 @@
     End Sub
 
     Public Sub TakeItemsOfItemType(itemType As IItemType) Implements ICharacterInventory.TakeItemsOfItemType
-        Dim itemsToTake = CharacterNavigation.FromId(WorldData, Id).Location.Inventory.ItemsOfType(itemType)
+        Dim itemsToTake = CharacterNavigation.FromId(WorldData, Id).Location.Inventory.ItemsOfItemType(itemType)
         For Each itemToTake In itemsToTake
             TakeItem(itemToTake)
         Next

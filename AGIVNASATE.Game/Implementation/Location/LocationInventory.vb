@@ -31,7 +31,7 @@
         Return WorldData.LocationItem.ReadCountForLocation(Id) > 0L
     End Function
 
-    Public Function ItemsOfType(itemType As IItemType) As IEnumerable(Of IItem) Implements ILocationInventory.ItemsOfType
-        Return Array.Empty(Of IItem)
+    Public Function ItemsOfItemType(itemType As IItemType) As IEnumerable(Of IItem) Implements ILocationInventory.ItemsOfItemType
+        Return WorldData.LocationItem.ReadForItemType(Id, itemType.Id).Select(Function(x) Item.FromId(WorldData, x))
     End Function
 End Class
