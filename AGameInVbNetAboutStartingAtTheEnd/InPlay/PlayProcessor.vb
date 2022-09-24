@@ -39,6 +39,8 @@
                     done = Confirm("Are you sure you want to abandon the game?")
                 Case FightText
                     FightProcessor.Run(playerCharacter)
+                Case GroundText
+                    GroundProcessor.Run(playerCharacter)
                 Case InventoryText
                     InventoryProcessor.Run(playerCharacter)
                 Case MoveText
