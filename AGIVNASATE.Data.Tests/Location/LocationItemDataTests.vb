@@ -6,7 +6,7 @@
         store.VerifyNoOtherCalls()
     End Sub
     <Fact>
-    Sub ShouldDetermineHowMany()
+    Sub ShouldDetermineHowManyItemsAreAtAGivenLocation()
         WithLocationItemData(
             Sub(store, subject)
                 Const locationId = 1L
