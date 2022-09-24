@@ -12,5 +12,6 @@
     Friend Const QuitText = "Quit"
     Friend Const StartNewGameText = "Start New Game"
     Friend Const StatisticsText = "Statististics"
+    Friend Const TakeAllText = "Take All"
     Friend Const YesText = "Yes"
 End Module

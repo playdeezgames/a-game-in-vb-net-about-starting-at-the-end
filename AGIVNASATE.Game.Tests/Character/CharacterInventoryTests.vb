@@ -57,4 +57,15 @@
                 worldData.Verify(Sub(x) x.InventoryItem.Write(itemId, 0))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldTakeTheItemsOfAGivenItemTypeFromTheLocationWhereAGivenCharacterExists()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const itemTypeId = 2L
+                Const locationId = 3L
+                worldData.Setup(Function(x) x.Character.ReadLocation(It.IsAny(Of Long))).Returns(locationId)
+                subject.TakeItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
+                worldData.Verify(Function(x) x.Character.ReadLocation(id))
+            End Sub)
+    End Sub
 End Class

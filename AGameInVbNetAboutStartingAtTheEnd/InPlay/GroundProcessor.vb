@@ -15,7 +15,7 @@
                 Case NeverMindText
                     done = True
                 Case Else
-                    GroundItemTypeProcessor.Run(character, Location, table(answer))
+                    GroundItemTypeProcessor.Run(character, table(answer))
             End Select
         End While
     End Sub

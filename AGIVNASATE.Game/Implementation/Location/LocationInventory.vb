@@ -30,4 +30,8 @@
     Public Function HasItems() As Boolean Implements ILocationInventory.HasItems
         Return WorldData.LocationItem.ReadCountForLocation(Id) > 0L
     End Function
+
+    Public Function ItemsOfType(itemType As IItemType) As IEnumerable(Of IItem) Implements ILocationInventory.ItemsOfType
+        Return Array.Empty(Of IItem)
+    End Function
 End Class

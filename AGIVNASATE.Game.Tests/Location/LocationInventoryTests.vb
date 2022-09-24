@@ -34,4 +34,12 @@
                 worldData.Verify(Function(x) x.LocationItem.ReadForLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheItemsOfAGivenTypeOnTheGroundInAGivenLocation()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const itemTypeId = 2L
+                subject.ItemsOfType(ItemType.FromId(worldData.Object, itemTypeId)).ShouldBeEmpty
+            End Sub)
+    End Sub
 End Class

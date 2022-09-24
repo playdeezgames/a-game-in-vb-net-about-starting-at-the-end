@@ -22,7 +22,18 @@
     End Sub
 
     Private Sub DropItem(itemToDrop As IItem)
-        Character.FromId(WorldData, Id).Navigation.Location.Inventory.AddItem(itemToDrop)
+        CharacterNavigation.FromId(WorldData, Id).Location.Inventory.AddItem(itemToDrop)
+    End Sub
+
+    Public Sub TakeItemsOfItemType(itemType As IItemType) Implements ICharacterInventory.TakeItemsOfItemType
+        Dim itemsToTake = CharacterNavigation.FromId(WorldData, Id).Location.Inventory.ItemsOfType(itemType)
+        For Each itemToTake In itemsToTake
+            TakeItem(itemToTake)
+        Next
+    End Sub
+
+    Private Sub TakeItem(itemToTake As IItem)
+        Throw New NotImplementedException()
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
