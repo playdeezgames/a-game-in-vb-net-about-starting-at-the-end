@@ -39,7 +39,9 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.LocationItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.ItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId)).ShouldBeEmpty
+                worldData.Verify(Function(x) x.LocationItem.ReadForItemType(id, itemTypeId))
             End Sub)
     End Sub
 End Class

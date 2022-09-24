@@ -20,4 +20,19 @@
             Tables.Inventories,
             (Columns.LocationIdColumn, locationId))
     End Function
+
+    Public Function ReadForCharacter(characterId As Long) As Long? Implements IInventoryData.ReadForCharacter
+        Return Store.ReadColumnValue(Of Long, Long)(
+                        AddressOf NoInitializer,
+                        Tables.Inventories,
+                        Columns.InventoryIdColumn,
+                        (Columns.CharacterIdColumn, characterId))
+    End Function
+
+    Public Function CreateForCharacter(characterId As Long) As Long Implements IInventoryData.CreateForCharacter
+        Return Store.CreateRecord(
+                        AddressOf NoInitializer,
+                        Tables.Inventories,
+                        (Columns.CharacterIdColumn, characterId))
+    End Function
 End Class

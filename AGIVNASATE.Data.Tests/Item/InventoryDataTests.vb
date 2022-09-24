@@ -32,4 +32,31 @@
                         (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheInventoryIdForAGivenCharacter()
+        WithInventoryDta(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.ReadForCharacter(characterId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadColumnValue(Of Long, Long)(
+                        It.IsAny(Of Action),
+                        Tables.Inventories,
+                        Columns.InventoryIdColumn,
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldCreateAnInventoryForAGivenCharacter()
+        WithInventoryDta(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.CreateForCharacter(characterId).ShouldBe(0)
+                store.Verify(
+                    Function(x) x.CreateRecord(
+                        It.IsAny(Of Action),
+                        Tables.Inventories,
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
 End Class

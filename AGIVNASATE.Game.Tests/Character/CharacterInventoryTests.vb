@@ -63,9 +63,18 @@
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
                 Const locationId = 3L
+                Const itemId = 4L
+                worldData.Setup(Function(x) x.LocationItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long))).Returns(New List(Of Long) From {itemId})
                 worldData.Setup(Function(x) x.Character.ReadLocation(It.IsAny(Of Long))).Returns(locationId)
+                worldData.Setup(Function(x) x.Inventory.ReadForCharacter(It.IsAny(Of Long)))
+                worldData.Setup(Function(x) x.Inventory.CreateForCharacter(It.IsAny(Of Long)))
+                worldData.Setup(Sub(x) x.InventoryItem.Write(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.TakeItemsOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
                 worldData.Verify(Function(x) x.Character.ReadLocation(id))
+                worldData.Verify(Function(x) x.LocationItem.ReadForItemType(locationId, itemTypeId))
+                worldData.Verify(Function(x) x.Inventory.ReadForCharacter(id))
+                worldData.Verify(Function(x) x.Inventory.CreateForCharacter(id))
+                worldData.Verify(Sub(x) x.InventoryItem.Write(itemId, 0))
             End Sub)
     End Sub
 End Class

@@ -28,12 +28,16 @@
     Public Sub TakeItemsOfItemType(itemType As IItemType) Implements ICharacterInventory.TakeItemsOfItemType
         Dim itemsToTake = CharacterNavigation.FromId(WorldData, Id).Location.Inventory.ItemsOfItemType(itemType)
         For Each itemToTake In itemsToTake
-            TakeItem(itemToTake)
+            AddItem(itemToTake)
         Next
     End Sub
 
-    Private Sub TakeItem(itemToTake As IItem)
-        Throw New NotImplementedException()
+    Private Sub AddItem(item As IItem)
+        Dim inventoryId As Long? = WorldData.Inventory.ReadForCharacter(Id)
+        If Not inventoryId.HasValue Then
+            inventoryId = WorldData.Inventory.CreateForCharacter(Id)
+        End If
+        WorldData.InventoryItem.Write(item.Id, inventoryId.Value)
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
