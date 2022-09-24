@@ -15,11 +15,17 @@
             End Sub)
     End Sub
     <Fact>
-    Sub Should()
+    Sub ShouldReadAllOfTheItemsInAGivenLocation()
         WithLocationItemData(
             Sub(store, subject)
                 Const locationId = 1L
-                subject.ReadForLocation(locationId).ShouldBeEmpty
+                subject.ReadForLocation(locationId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+                        It.IsAny(Of Action),
+                        Views.LocationItems,
+                        (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
+                        (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
 End Class

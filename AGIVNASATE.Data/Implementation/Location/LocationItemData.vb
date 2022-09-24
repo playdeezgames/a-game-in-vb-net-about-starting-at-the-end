@@ -14,6 +14,10 @@
     End Function
 
     Public Function ReadForLocation(locationId As Long) As IEnumerable(Of Tuple(Of Long, Long)) Implements ILocationItemData.ReadForLocation
-        Return Array.Empty(Of Tuple(Of Long, Long))
+        Return Store.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Views.LocationItems,
+            (Columns.ItemIdColumn, Columns.ItemTypeIdColumn),
+            (Columns.LocationIdColumn, locationId))
     End Function
 End Class
