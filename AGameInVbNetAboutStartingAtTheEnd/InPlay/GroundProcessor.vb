@@ -8,6 +8,7 @@
                 ToDictionary(
                     Function(x) $"{x.Key.Name}(x{x.Value.Count})",
                     Function(x) x.Key)
+            prompt.AddChoices(table.Keys)
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
                 Case NeverMindText
