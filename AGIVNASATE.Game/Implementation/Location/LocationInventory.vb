@@ -6,6 +6,15 @@
         MyBase.New(worlddata, id)
     End Sub
 
+    Public ReadOnly Property ItemStacks As IReadOnlyDictionary(Of IItemType, IEnumerable(Of IItem)) Implements ILocationInventory.ItemStacks
+        Get
+            Return WorldData.LocationItem.ReadForLocation(Id).
+                GroupBy(Function(x) x.Item2).
+                ToDictionary(Function(x) ItemType.FromId(WorldData, x.Key),
+                             Function(x) x.Select(Function(y) Item.FromId(WorldData, y.Item1)))
+        End Get
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ILocationInventory.AddItem
         Dim inventoryId As Long? = WorldData.Inventory.ReadForLocation(Id)
         If Not inventoryId.HasValue Then

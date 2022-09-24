@@ -14,4 +14,12 @@
                 store.Verify(Function(x) x.ReadCountForColumnValue(It.IsAny(Of Action), Views.LocationItems, (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub Should()
+        WithLocationItemData(
+            Sub(store, subject)
+                Const locationId = 1L
+                subject.ReadForLocation(locationId).ShouldBeEmpty
+            End Sub)
+    End Sub
 End Class

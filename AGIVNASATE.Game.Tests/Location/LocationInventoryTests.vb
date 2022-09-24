@@ -25,4 +25,13 @@
                 worldData.Verify(Function(x) x.LocationItem.ReadCountForLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReturnItemStacksCategorizedByItemTypeForAGivenLoveion()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.LocationItem.ReadForLocation(It.IsAny(Of Long)))
+                subject.ItemStacks.ShouldBeEmpty
+                worldData.Verify(Function(x) x.LocationItem.ReadForLocation(id))
+            End Sub)
+    End Sub
 End Class
