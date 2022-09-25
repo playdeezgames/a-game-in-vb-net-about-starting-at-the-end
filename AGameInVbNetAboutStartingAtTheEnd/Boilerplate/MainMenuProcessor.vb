@@ -11,8 +11,9 @@
                     Dim store As IStore = New Store(Constants.DatabaseFileName)
                     store.Reset()
                     Dim eventsData = New EventsData
-                    Dim world As IWorld = New World(New WorldData(store, eventsData))
-                    eventsData.World = world
+                    Dim worldData = New WorldData(store, eventsData)
+                    Dim world As IWorld = New World(worldData)
+                    eventsData.WorldData = worldData
                     PlayProcessor.Run(world)
                 Case QuitText
                     done = Confirm("Are you sure you want to quit?")
