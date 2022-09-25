@@ -10,12 +10,26 @@
         WithItemTypeData(
             Sub(store, subject)
                 Const itemTypeId = 1L
-                subject.ReadName(itemTypeId)
+                subject.ReadName(itemTypeId).ShouldBeNull
                 store.Verify(
                     Function(x) x.ReadColumnString(
                         It.IsAny(Of Action),
                         Tables.ItemTypes,
                         Columns.ItemTypeNameColumn,
+                        (Columns.ItemTypeIdColumn, itemTypeId)))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldReadTheUseEventNameFromTheDataStoreForAGivenItemTypeId()
+        WithItemTypeData(
+            Sub(store, subject)
+                Const itemTypeId = 1L
+                subject.ReadUseEventName(itemTypeId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadColumnString(
+                        It.IsAny(Of Action),
+                        Tables.ItemTypes,
+                        Columns.UseEventNameColumn,
                         (Columns.ItemTypeIdColumn, itemTypeId)))
             End Sub)
     End Sub

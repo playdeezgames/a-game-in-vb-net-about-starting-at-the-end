@@ -11,7 +11,7 @@
     End Property
     Public ReadOnly Property CanUse As Boolean Implements IItemType.CanUse
         Get
-            Return False
+            Return Not String.IsNullOrWhiteSpace(WorldData.ItemType.ReadUseEventName(Id))
         End Get
     End Property
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As IItemType

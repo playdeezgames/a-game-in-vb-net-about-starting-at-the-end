@@ -16,7 +16,9 @@
     Sub ShouldFetchTheAbilityOfAnItemTypeToBeUsed()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.ItemType.ReadUseEventName(It.IsAny(Of Long)))
                 subject.CanUse.ShouldBeFalse
+                worldData.Verify(Function(x) x.ItemType.ReadUseEventName(id))
             End Sub)
     End Sub
 End Class

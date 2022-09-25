@@ -17,4 +17,5 @@
     Public Const StatisticValueColumn = "StatisticValue"
     Public Const ToCharacterIdColumn = "ToCharacterId"
     Public Const ToLocationIdColumn = "ToLocationId"
+    Public Const UseEventNameColumn = "UseEventName"
 End Module
