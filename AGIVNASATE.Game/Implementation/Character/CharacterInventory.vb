@@ -42,7 +42,7 @@
 
     Public Function UseItemOfItemType(itemType As IItemType) As String Implements ICharacterInventory.UseItemOfItemType
         Dim useEventName = WorldData.ItemType.ReadUseEventName(itemType.Id)
-        WorldData.Events.Raise(useEventName, Id)
+        Return WorldData.Events.Raise(useEventName, Id)
     End Function
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems

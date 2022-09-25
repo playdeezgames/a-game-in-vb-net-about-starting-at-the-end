@@ -10,7 +10,9 @@
                 Case StartNewGameText
                     Dim store As IStore = New Store(Constants.DatabaseFileName)
                     store.Reset()
-                    Dim world As IWorld = New World(New WorldData(store, New EventsData))
+                    Dim eventsData = New EventsData
+                    Dim world As IWorld = New World(New WorldData(store, eventsData))
+                    eventsData.World = world
                     PlayProcessor.Run(world)
                 Case QuitText
                     done = Confirm("Are you sure you want to quit?")
