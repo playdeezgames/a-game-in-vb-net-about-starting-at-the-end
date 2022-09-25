@@ -4,4 +4,5 @@
     Function ItemsOfItemType(itemType As IItemType) As IEnumerable(Of IItem)
     Sub DropItemsOfItemType(itemType As IItemType)
     Sub TakeItemsOfItemType(itemType As IItemType)
+    Function UseItemOfItemType(itemType As IItemType) As String
 End Interface

@@ -17,6 +17,10 @@
                     done = True
                 Case NeverMindText
                     done = True
+                Case UseText
+                    AnsiConsole.MarkupLine(character.Inventory.UseItemOfItemType(itemType))
+                    OkPrompt()
+                    done = True
             End Select
         End While
     End Sub

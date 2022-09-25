@@ -40,6 +40,11 @@
         WorldData.InventoryItem.Write(item.Id, inventoryId.Value)
     End Sub
 
+    Public Function UseItemOfItemType(itemType As IItemType) As String Implements ICharacterInventory.UseItemOfItemType
+        Dim useEventName = WorldData.ItemType.ReadUseEventName(itemType.Id)
+        WorldData.Events.Raise(useEventName, Id)
+    End Function
+
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
         Get
             Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L

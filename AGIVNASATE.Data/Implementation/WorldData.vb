@@ -1,12 +1,13 @@
 ﻿Public Class WorldData
     Implements IWorldData
     Private Store As IStore
-    Sub New(store As IStore)
+    Sub New(store As IStore, events As IEventsData)
         Me.Store = store
         Character = New CharacterData(store)
         CharacterItem = New CharacterItemData(store)
         CharacterLocationEsteem = New CharacterLocationEsteemData(store)
         CharacterStatistic = New CharacterStatisticData(store)
+        Me.Events = events
         Inventory = New InventoryData(store)
         InventoryItem = New ItemData(store)
         ItemType = New ItemTypeData(store)
@@ -27,7 +28,7 @@
     Public ReadOnly Property Inventory As IInventoryData Implements IWorldData.Inventory
     Public ReadOnly Property InventoryItem As IInventoryItemData Implements IWorldData.InventoryItem
     Public ReadOnly Property LocationItem As ILocationItemData Implements IWorldData.LocationItem
-
+    Public ReadOnly Property Events As IEventsData Implements IWorldData.Events
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)
     End Sub

@@ -77,4 +77,16 @@
                 worldData.Verify(Sub(x) x.InventoryItem.Write(itemId, 0))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRunTheUseEventAssociatedWithAGivenItemType()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.ItemType.ReadUseEventName(It.IsAny(Of Long)))
+                worldData.Setup(Sub(x) x.Events.Raise(It.IsAny(Of String), It.IsAny(Of Long)))
+                subject.UseItemOfItemType(ItemType.FromId(worldData.Object, itemTypeId)).ShouldBeNull
+                worldData.Verify(Function(x) x.ItemType.ReadUseEventName(itemTypeId))
+                worldData.Verify(Sub(x) x.Events.Raise(Nothing, id))
+            End Sub)
+    End Sub
 End Class
