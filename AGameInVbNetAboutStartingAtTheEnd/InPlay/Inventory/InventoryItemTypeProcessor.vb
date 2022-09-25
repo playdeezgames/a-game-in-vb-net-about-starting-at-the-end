@@ -7,6 +7,9 @@
             Dim prompt As New SelectionPrompt(Of String) With {.Title = $"{character.Name}'s {itemType.Name}(x{quantity})"}
             prompt.AddChoice(NeverMindText)
             prompt.AddChoice(DropAllText)
+            If itemType.CanUse Then
+                prompt.AddChoice(UseText)
+            End If
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
                 Case DropAllText

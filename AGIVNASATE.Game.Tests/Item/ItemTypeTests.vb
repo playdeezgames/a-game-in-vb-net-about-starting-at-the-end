@@ -12,4 +12,11 @@
                 worldData.Verify(Function(x) x.ItemType.ReadName(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldFetchTheAbilityOfAnItemTypeToBeUsed()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.CanUse.ShouldBeFalse
+            End Sub)
+    End Sub
 End Class
