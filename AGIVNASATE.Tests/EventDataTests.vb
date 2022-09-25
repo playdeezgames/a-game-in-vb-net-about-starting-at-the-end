@@ -1,0 +1,23 @@
+Public Class EventDataTests
+    Private Sub WithEventsData(stuffToDo As Action(Of Mock(Of IWorldData), IEventsData))
+        Dim worldData As New Mock(Of IWorldData)
+        Dim subject As EventsData = New EventsData
+        subject.WorldData = worldData.Object
+        stuffToDo(worldData, subject)
+        worldData.VerifyNoOtherCalls()
+    End Sub
+    <Fact>
+    Sub ShouldHandleUsePortalScroll()
+        WithEventsData(
+            Sub(worldData, subject)
+                Const eventName = "UsePortalScroll"
+                Const characterId = 1L
+                Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.Character.ReadName(It.IsAny(Of Long)))
+                worldData.Setup(Function(x) x.ItemType.ReadName(It.IsAny(Of Long)))
+                subject.Raise(eventName, characterId, itemTypeId).ShouldBe(" uses the .")
+                worldData.Verify(Function(x) x.Character.ReadName(characterId))
+                worldData.Verify(Function(x) x.ItemType.ReadName(itemTypeId))
+            End Sub)
+    End Sub
+End Class

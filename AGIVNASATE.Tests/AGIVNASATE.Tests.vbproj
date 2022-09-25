@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>AGIVNASATE.Game.Tests</RootNamespace>
+    <RootNamespace>AGIVNASATE.Tests</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
@@ -37,14 +37,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AGIVNASATE.Game\AGIVNASATE.Game.vbproj" />
+    <ProjectReference Include="..\AGameInVbNetAboutStartingAtTheEnd\AGameInVbNetAboutStartingAtTheEnd.vbproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Import Include="AGameInVbNetAboutStartingAtTheEnd" />
     <Import Include="AGIVNASATE.Data" />
     <Import Include="AGIVNASATE.Game" />
     <Import Include="Moq" />
     <Import Include="Shouldly" />
+    <Import Include="SPLORR.Data" />
     <Import Include="Xunit" />
   </ItemGroup>
 

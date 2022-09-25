@@ -86,7 +86,7 @@
                 worldData.Setup(Sub(x) x.Events.Raise(It.IsAny(Of String), It.IsAny(Of Long)))
                 subject.UseItemOfItemType(ItemType.FromId(worldData.Object, itemTypeId)).ShouldBeNull
                 worldData.Verify(Function(x) x.ItemType.ReadUseEventName(itemTypeId))
-                worldData.Verify(Sub(x) x.Events.Raise(Nothing, id))
+                worldData.Verify(Sub(x) x.Events.Raise(Nothing, id, itemTypeId))
             End Sub)
     End Sub
 End Class
