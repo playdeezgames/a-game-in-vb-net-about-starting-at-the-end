@@ -7,6 +7,11 @@
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ILocationNavigation
         Return If(id.HasValue, New LocationNavigation(worldData, id.Value), Nothing)
     End Function
+
+    Public Sub CreateRoute(routeName As String, toLocation As ILocation) Implements ILocationNavigation.CreateRoute
+        'TODO: make an actual route
+    End Sub
+
     Public ReadOnly Property HasRoutes As Boolean Implements ILocationNavigation.HasRoutes
         Get
             Return WorldData.Route.CountForFromLocation(Id) > 0

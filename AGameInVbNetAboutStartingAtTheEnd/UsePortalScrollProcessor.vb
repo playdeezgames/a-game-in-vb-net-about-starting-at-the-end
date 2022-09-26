@@ -5,9 +5,9 @@
             Return $"{character.Name} has no {itemType.Name}."
         End If
         Dim startLocation As ILocation = character.World.StartLocation
-        'TODO: where is the start location?
-        'TODO: make route from current location to start location
-        'TODO: make route from start location to current location
+        Dim currentLocation = character.Navigation.Location
+        startLocation.Navigation.CreateRoute("Portal", currentLocation)
+        currentLocation.Navigation.CreateRoute("Portal", startLocation)
         item.Destroy()
         Return $"{character.Name} uses the {itemType.Name}."
     End Function

@@ -21,4 +21,13 @@
                 worldData.Verify(Function(x) x.Route.ReadForFromLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldCreateARouteFromTheCurrentLocationToAnotherLocation()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const routeName = "Route Name"
+                Const toLocationId = 2L
+                subject.CreateRoute(routeName, Location.FromId(worldData.Object, toLocationId))
+            End Sub)
+    End Sub
 End Class
