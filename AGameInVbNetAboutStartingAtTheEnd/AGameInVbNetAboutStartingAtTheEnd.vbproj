@@ -20,10 +20,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\FinalBoss.wav" />
     <None Remove="end.db" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\FinalBoss.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="end.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
