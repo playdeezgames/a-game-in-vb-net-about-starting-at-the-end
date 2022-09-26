@@ -6,6 +6,7 @@ Public Interface IWorldData
     ReadOnly Property Events As IEventsData
     ReadOnly Property Inventory As IInventoryData
     ReadOnly Property InventoryItem As IInventoryItemData
+    ReadOnly Property Item As IItemData
     ReadOnly Property ItemType As IItemTypeData
     ReadOnly Property Location As ILocationData
     ReadOnly Property LocationItem As ILocationItemData

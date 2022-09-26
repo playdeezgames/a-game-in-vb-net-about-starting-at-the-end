@@ -45,6 +45,14 @@
         Return WorldData.Events.Raise(useEventName, Id, itemType.Id)
     End Function
 
+    Public Function ItemOfItemType(itemType As IItemType) As IItem Implements ICharacterInventory.ItemOfItemType
+        Dim itemsIds = WorldData.CharacterItem.ReadForItemType(Id, itemType.Id)
+        If itemsIds.Any Then
+            Return Item.FromId(WorldData, itemsIds.First)
+        End If
+        Return Nothing
+    End Function
+
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
         Get
             Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L

@@ -11,6 +11,7 @@ Public Class WorldDataTests
         subject.Events.ShouldNotBeNull
         subject.Inventory.ShouldNotBeNull
         subject.InventoryItem.ShouldNotBeNull
+        subject.Item.ShouldNotBeNull
         subject.ItemType.ShouldNotBeNull
         subject.Location.ShouldNotBeNull
         subject.LocationItem.ShouldNotBeNull

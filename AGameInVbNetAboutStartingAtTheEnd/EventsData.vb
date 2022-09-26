@@ -10,7 +10,7 @@ Public Class EventsData
                 Function(parms)
                     Dim character = Game.Character.FromId(WorldData, parms(0))
                     Dim itemType = Game.ItemType.FromId(WorldData, parms(1))
-                    Return $"{character.Name} uses the {itemType.Name}."
+                    Return UsePortalScrollProcessor.Run(character, itemType)
                 End Function}
         }
     Public Function Raise(eventName As String, ParamArray parms As Long()) As String Implements IEventsData.Raise

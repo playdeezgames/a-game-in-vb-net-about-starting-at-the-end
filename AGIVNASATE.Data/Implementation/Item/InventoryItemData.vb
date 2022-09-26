@@ -1,4 +1,4 @@
-﻿Public Class ItemData
+﻿Public Class InventoryItemData
     Inherits BaseData
     Implements IInventoryItemData
 

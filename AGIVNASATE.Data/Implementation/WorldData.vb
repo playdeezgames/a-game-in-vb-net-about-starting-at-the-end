@@ -9,7 +9,8 @@
         CharacterStatistic = New CharacterStatisticData(store)
         Me.Events = events
         Inventory = New InventoryData(store)
-        InventoryItem = New ItemData(store)
+        InventoryItem = New InventoryItemData(store)
+        Item = New ItemData(store)
         ItemType = New ItemTypeData(store)
         Location = New LocationData(store)
         LocationItem = New LocationItemData(store)
@@ -29,6 +30,8 @@
     Public ReadOnly Property InventoryItem As IInventoryItemData Implements IWorldData.InventoryItem
     Public ReadOnly Property LocationItem As ILocationItemData Implements IWorldData.LocationItem
     Public ReadOnly Property Events As IEventsData Implements IWorldData.Events
+    Public ReadOnly Property Item As IItemData Implements IWorldData.Item
+
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)
     End Sub

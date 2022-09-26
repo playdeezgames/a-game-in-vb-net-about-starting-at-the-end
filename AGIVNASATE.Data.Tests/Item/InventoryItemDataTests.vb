@@ -1,7 +1,7 @@
 ﻿Public Class InventoryItemDataTests
     Private Sub WithItemData(stuffToDo As Action(Of Mock(Of IStore), IInventoryItemData))
         Dim store As New Mock(Of IStore)
-        Dim subject As IInventoryItemData = New ItemData(store.Object)
+        Dim subject As IInventoryItemData = New InventoryItemData(store.Object)
         stuffToDo(store, subject)
         store.VerifyNoOtherCalls()
     End Sub

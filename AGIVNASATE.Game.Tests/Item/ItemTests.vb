@@ -12,4 +12,13 @@
                 subject.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldDestroyAnItem()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.Setup(Sub(x) x.Item.Clear(It.IsAny(Of Long)))
+                subject.Destroy()
+                worldData.Verify(Sub(x) x.Item.Clear(id))
+            End Sub)
+    End Sub
 End Class

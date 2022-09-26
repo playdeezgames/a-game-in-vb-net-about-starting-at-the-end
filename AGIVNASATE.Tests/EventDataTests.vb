@@ -15,9 +15,11 @@ Public Class EventDataTests
                 Const itemTypeId = 2L
                 worldData.Setup(Function(x) x.Character.ReadName(It.IsAny(Of Long)))
                 worldData.Setup(Function(x) x.ItemType.ReadName(It.IsAny(Of Long)))
-                subject.Raise(eventName, characterId, itemTypeId).ShouldBe(" uses the .")
+                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
+                subject.Raise(eventName, characterId, itemTypeId).ShouldBe(" has no .")
                 worldData.Verify(Function(x) x.Character.ReadName(characterId))
                 worldData.Verify(Function(x) x.ItemType.ReadName(itemTypeId))
+                worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(characterId, itemTypeId))
             End Sub)
     End Sub
 End Class

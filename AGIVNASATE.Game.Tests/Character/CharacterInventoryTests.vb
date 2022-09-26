@@ -89,4 +89,14 @@
                 worldData.Verify(Sub(x) x.Events.Raise(Nothing, id, itemTypeId))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldFetchAnItemOfAGivenItemTypeFromAGivenCharactersInventory()
+        WithSubject(
+            Sub(worldData, id, subject)
+                Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
+                subject.ItemOfItemType(ItemType.FromId(worldData.Object, itemTypeId)).ShouldBeNull
+                worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
+            End Sub)
+    End Sub
 End Class
