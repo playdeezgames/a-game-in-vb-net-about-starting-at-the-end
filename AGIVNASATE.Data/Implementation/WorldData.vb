@@ -35,4 +35,12 @@
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)
     End Sub
+
+    Public Function ReadStartLocation() As Long? Implements IWorldData.ReadStartLocation
+        Return Store.ReadColumnValue(Of Long, Long)(
+            Sub() Return,
+            Tables.Worlds,
+            Columns.StartLocationIdColumn,
+            (Columns.WorldIdColumn, 1))
+    End Function
 End Class

@@ -9,6 +9,7 @@ Public Interface IWorldData
     ReadOnly Property Item As IItemData
     ReadOnly Property ItemType As IItemTypeData
     ReadOnly Property Location As ILocationData
+    Function ReadStartLocation() As Long?
     ReadOnly Property LocationItem As ILocationItemData
     ReadOnly Property Player As IPlayerData
     ReadOnly Property Route As IRouteData

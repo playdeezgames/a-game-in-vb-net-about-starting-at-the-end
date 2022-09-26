@@ -31,6 +31,19 @@ Public Class WorldDataTests
         store.VerifyNoOtherCalls()
         events.VerifyNoOtherCalls()
     End Sub
+    <Fact>
+    Sub ShouldReadTheStartLoctionFromTheDataStore()
+        Dim store As New Mock(Of IStore)
+        Dim events As New Mock(Of IEventsData)
+        Dim subject As IWorldData = New WorldData(store.Object, events.Object)
+        subject.ReadStartLocation().ShouldBeNull
+        store.Verify(
+            Function(x) x.ReadColumnValue(Of Long, Long)(
+                It.IsAny(Of Action),
+                Tables.Worlds,
+                Columns.StartLocationIdColumn,
+                (Columns.WorldIdColumn, 1)))
+    End Sub
 End Class
 
 

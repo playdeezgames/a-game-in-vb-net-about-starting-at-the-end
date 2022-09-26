@@ -13,9 +13,11 @@
     Public Const PlayerIdColumn = "PlayerId"
     Public Const RouteIdColumn = "RouteId"
     Public Const RouteNameColumn = "RouteName"
+    Public Const StartLocationIdColumn = "StartLocationId"
     Public Const StatisticTypeIdColumn = "StatisticTypeId"
     Public Const StatisticValueColumn = "StatisticValue"
     Public Const ToCharacterIdColumn = "ToCharacterId"
     Public Const ToLocationIdColumn = "ToLocationId"
     Public Const UseEventNameColumn = "UseEventName"
+    Public Const WorldIdColumn = "WorldId"
 End Module

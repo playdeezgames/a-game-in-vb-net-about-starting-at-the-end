@@ -13,7 +13,7 @@ Public Class World
 
     Public ReadOnly Property StartLocation As ILocation Implements IWorld.StartLocation
         Get
-            Return Nothing
+            Return Location.FromId(WorldData, WorldData.ReadStartLocation())
         End Get
     End Property
 

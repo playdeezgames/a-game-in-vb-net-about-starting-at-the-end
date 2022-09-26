@@ -8,4 +8,5 @@
     Public Const Locations = "Locations"
     Public Const Players = "Players"
     Public Const Routes = "Routes"
+    Public Const Worlds = "Worlds"
 End Module
