@@ -11,6 +11,12 @@ Public Class World
         End Get
     End Property
 
+    Public ReadOnly Property StartLocation As ILocation Implements IWorld.StartLocation
+        Get
+            Return Nothing
+        End Get
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         WorldData.Save(filename)
     End Sub

@@ -4,6 +4,7 @@
         If item Is Nothing Then
             Return $"{character.Name} has no {itemType.Name}."
         End If
+        Dim startLocation As ILocation = character.World.StartLocation
         'TODO: where is the start location?
         'TODO: make route from current location to start location
         'TODO: make route from start location to current location

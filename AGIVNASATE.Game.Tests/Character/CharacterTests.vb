@@ -47,4 +47,11 @@
                 subject.Inventory.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldGiveAccessToTheWorldInWhichAGivenCharacterExists()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.World.ShouldNotBeNull
+            End Sub)
+    End Sub
 End Class

@@ -17,6 +17,12 @@ Public Class WorldTests
         worldData.Verify(Sub(x) x.Save(filename))
         worldData.VerifyNoOtherCalls()
     End Sub
+    <Fact>
+    Sub ShouldFetchTheStartingLocationOfAWorld()
+        Dim worldData As New Mock(Of IWorldData)
+        Dim subject As IWorld = New World(worldData.Object)
+        subject.StartLocation.ShouldBeNull
+    End Sub
 End Class
 
 
