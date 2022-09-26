@@ -9,7 +9,7 @@
     End Function
 
     Public Sub CreateRoute(routeName As String, toLocation As ILocation) Implements ILocationNavigation.CreateRoute
-        'TODO: make an actual route
+        WorldData.Route.Create(routeName, Id, toLocation.Id)
     End Sub
 
     Public ReadOnly Property HasRoutes As Boolean Implements ILocationNavigation.HasRoutes

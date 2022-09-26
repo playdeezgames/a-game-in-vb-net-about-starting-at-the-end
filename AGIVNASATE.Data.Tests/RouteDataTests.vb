@@ -1,15 +1,15 @@
 ﻿Public Class RouteDataTests
-    Private Sub WithRouteData(stuffToDo As Action(Of Mock(Of IStore), Long, IRouteData))
-        Const id = 1L
+    Private Sub WithRouteData(stuffToDo As Action(Of Mock(Of IStore), IRouteData))
         Dim store As New Mock(Of IStore)
         Dim subject As IRouteData = New RouteData(store.Object)
-        stuffToDo(store, id, subject)
+        stuffToDo(store, subject)
         store.VerifyNoOtherCalls()
     End Sub
     <Fact>
     Sub ShouldReadAllOfTheRoutesFromAGivenLocationFromTheStore()
         WithRouteData(
-            Sub(store, id, subject)
+            Sub(store, subject)
+                Const id = 1L
                 subject.ReadForFromLocation(id).ShouldBeNull
                 store.Verify(
                     Function(x) x.ReadRecordsWithColumnValue(Of Long, Long)(
@@ -22,7 +22,8 @@
     <Fact>
     Sub ShouldAttemptToReadNameFromTheStore()
         WithRouteData(
-            Sub(store, id, subject)
+            Sub(store, subject)
+                Const id = 1L
                 subject.ReadName(id).ShouldBeNull
                 store.Verify(
                     Function(x) x.ReadColumnString(Of Long)(
@@ -35,7 +36,8 @@
     <Fact>
     Sub ShouldAttemptToReadToLocationFromTheStore()
         WithRouteData(
-            Sub(store, id, subject)
+            Sub(store, subject)
+                Const id = 1L
                 subject.ReadToLocation(id).ShouldBeNull
                 store.Verify(
                     Function(x) x.ReadColumnValue(Of Long, Long)(
@@ -48,13 +50,31 @@
     <Fact>
     Sub ShouldAttemptToReadTheCountOfRoutesForAGivenLocation()
         WithRouteData(
-            Sub(store, id, subject)
+            Sub(store, subject)
+                Const id = 1L
                 subject.CountForFromLocation(id).ShouldBe(0)
                 store.Verify(
                     Function(x) x.ReadCountForColumnValue(Of Long)(
                         It.IsAny(Of Action),
                         Tables.Routes,
                         (Columns.FromLocationIdColumn, id)))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldCreateARoute()
+        WithRouteData(
+            Sub(store, subject)
+                Const routeName = "Route Name"
+                Const fromLocationId = 1L
+                Const toLocationId = 2L
+                subject.Create(routeName, fromLocationId, toLocationId)
+                store.Verify(
+                    Function(x) x.CreateRecord(
+                        It.IsAny(Of Action),
+                        Tables.Routes,
+                        (Columns.RouteNameColumn, routeName),
+                        (Columns.FromLocationIdColumn, fromLocationId),
+                        (Columns.ToLocationIdColumn, toLocationId)))
             End Sub)
     End Sub
 End Class

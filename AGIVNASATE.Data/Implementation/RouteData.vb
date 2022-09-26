@@ -33,4 +33,13 @@
             Columns.ToLocationIdColumn,
             (Columns.RouteIdColumn, routeId))
     End Function
+
+    Public Function Create(routeName As String, fromLocationId As Long, toLocationId As Long) As Long Implements IRouteData.Create
+        Return Store.CreateRecord(
+            AddressOf NoInitializer,
+            Tables.Routes,
+            (Columns.RouteNameColumn, routeName),
+            (Columns.FromLocationIdColumn, fromLocationId),
+            (Columns.ToLocationIdColumn, toLocationId))
+    End Function
 End Class

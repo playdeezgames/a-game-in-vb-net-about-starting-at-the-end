@@ -27,7 +27,13 @@
             Sub(worldData, id, subject)
                 Const routeName = "Route Name"
                 Const toLocationId = 2L
+                worldData.Setup(
+                    Function(x) x.Route.Create(
+                        It.IsAny(Of String),
+                        It.IsAny(Of Long),
+                        It.IsAny(Of Long)))
                 subject.CreateRoute(routeName, Location.FromId(worldData.Object, toLocationId))
+                worldData.Verify(Function(x) x.Route.Create(routeName, id, toLocationId))
             End Sub)
     End Sub
 End Class
