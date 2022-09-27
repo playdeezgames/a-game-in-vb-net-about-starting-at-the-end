@@ -14,6 +14,9 @@ Public Class EventsData
                 End Function},
             {"UseSingleUsePortal",
                 Function(parms)
+                    Dim character = Game.Character.FromId(WorldData, parms(0))
+                    Dim route = Game.Route.FromId(WorldData, parms(1))
+                    Return UseSingleUsePortalProcessor.Run(character, route)
                 End Function}
         }
     Public Function Raise(eventName As String, ParamArray parms As Long()) As String Implements IEventsData.Raise
