@@ -17,6 +17,12 @@ Public Class World
         End Get
     End Property
 
+    Public ReadOnly Property RouteTypes(routeTypeId As Long) As IRouteType Implements IWorld.RouteTypes
+        Get
+            Return RouteType.FromId(WorldData, routeTypeId)
+        End Get
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         WorldData.Save(filename)
     End Sub

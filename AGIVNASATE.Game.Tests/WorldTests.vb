@@ -23,6 +23,13 @@ Public Class WorldTests
         Dim subject As IWorld = New World(worldData.Object)
         subject.StartLocation.ShouldBeNull
     End Sub
+    <Fact>
+    Sub ShouldFetchARouteTypeByIdentifier()
+        Dim worldData As New Mock(Of IWorldData)
+        Dim subject As IWorld = New World(worldData.Object)
+        Const routeTypeId = 1L
+        subject.RouteTypes(routeTypeId).Id.ShouldBe(routeTypeId)
+    End Sub
 End Class
 
 

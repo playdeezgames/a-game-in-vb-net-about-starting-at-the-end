@@ -6,8 +6,9 @@
         End If
         Dim startLocation As ILocation = character.World.StartLocation
         Dim currentLocation = character.Navigation.Location
-        startLocation.Navigation.CreateRoute("Portal", currentLocation)
-        currentLocation.Navigation.CreateRoute("Portal", startLocation)
+        Dim routeType As IRouteType = character.World.RouteTypes(1L)
+        startLocation.Navigation.CreateRoute(routeType, "Portal", currentLocation)
+        currentLocation.Navigation.CreateRoute(routeType, "Portal", startLocation)
         item.Destroy()
         Return $"{character.Name} uses the {itemType.Name}."
     End Function

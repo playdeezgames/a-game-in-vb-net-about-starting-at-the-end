@@ -1,5 +1,5 @@
 ﻿Public Interface ILocationNavigation
     ReadOnly Property HasRoutes As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)
-    Sub CreateRoute(routeName As String, toLocation As ILocation)
+    Sub CreateRoute(routeType As IRouteType, routeName As String, toLocation As ILocation)
 End Interface

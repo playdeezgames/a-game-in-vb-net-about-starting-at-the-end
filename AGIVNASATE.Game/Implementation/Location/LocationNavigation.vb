@@ -8,8 +8,8 @@
         Return If(id.HasValue, New LocationNavigation(worldData, id.Value), Nothing)
     End Function
 
-    Public Sub CreateRoute(routeName As String, toLocation As ILocation) Implements ILocationNavigation.CreateRoute
-        WorldData.Route.Create(routeName, Id, toLocation.Id)
+    Public Sub CreateRoute(routeType As IRouteType, routeName As String, toLocation As ILocation) Implements ILocationNavigation.CreateRoute
+        WorldData.Route.Create(routeType.Id, routeName, Id, toLocation.Id)
     End Sub
 
     Public ReadOnly Property HasRoutes As Boolean Implements ILocationNavigation.HasRoutes

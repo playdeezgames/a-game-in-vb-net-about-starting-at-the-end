@@ -13,6 +13,7 @@
     Public Const PlayerIdColumn = "PlayerId"
     Public Const RouteIdColumn = "RouteId"
     Public Const RouteNameColumn = "RouteName"
+    Public Const RouteTypeIdColumn = "RouteTypeId"
     Public Const StartLocationIdColumn = "StartLocationId"
     Public Const StatisticTypeIdColumn = "StatisticTypeId"
     Public Const StatisticValueColumn = "StatisticValue"

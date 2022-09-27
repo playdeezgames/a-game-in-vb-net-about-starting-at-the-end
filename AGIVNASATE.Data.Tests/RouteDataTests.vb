@@ -67,11 +67,13 @@
                 Const routeName = "Route Name"
                 Const fromLocationId = 1L
                 Const toLocationId = 2L
-                subject.Create(routeName, fromLocationId, toLocationId)
+                Const routeTypeId = 3L
+                subject.Create(routeTypeId, routeName, fromLocationId, toLocationId)
                 store.Verify(
                     Function(x) x.CreateRecord(
                         It.IsAny(Of Action),
                         Tables.Routes,
+                        (Columns.RouteTypeIdColumn, routeTypeId),
                         (Columns.RouteNameColumn, routeName),
                         (Columns.FromLocationIdColumn, fromLocationId),
                         (Columns.ToLocationIdColumn, toLocationId)))
