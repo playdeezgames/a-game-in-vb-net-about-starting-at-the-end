@@ -16,6 +16,7 @@
         LocationItem = New LocationItemData(store)
         Player = New PlayerData(store)
         Route = New RouteData(store)
+        RouteType = New RouteTypeData(store)
     End Sub
 
     Public ReadOnly Property Player As IPlayerData Implements IWorldData.Player
@@ -31,6 +32,7 @@
     Public ReadOnly Property LocationItem As ILocationItemData Implements IWorldData.LocationItem
     Public ReadOnly Property Events As IEventsData Implements IWorldData.Events
     Public ReadOnly Property Item As IItemData Implements IWorldData.Item
+    Public ReadOnly Property RouteType As IRouteTypeData Implements IWorldData.RouteType
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

@@ -61,6 +61,20 @@
             End Sub)
     End Sub
     <Fact>
+    Sub ShouldAttemptToReadTheRoutTypeForAGivenRoute()
+        WithRouteData(
+            Sub(store, subject)
+                Const id = 1L
+                subject.ReadRouteType(id).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadColumnValue(Of Long, Long)(
+                        It.IsAny(Of Action),
+                        Tables.Routes,
+                        Columns.RouteTypeIdColumn,
+                        (Columns.RouteIdColumn, id)))
+            End Sub)
+    End Sub
+    <Fact>
     Sub ShouldCreateARoute()
         WithRouteData(
             Sub(store, subject)

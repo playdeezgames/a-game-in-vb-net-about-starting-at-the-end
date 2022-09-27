@@ -28,4 +28,13 @@
                 worldData.Verify(Function(x) x.Route.ReadToLocation(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub RetrieveAGivenRoutesRouteType()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.Route.ReadRouteType(It.IsAny(Of Long)))
+                subject.RouteType.ShouldBeNull
+                worldData.Verify(Function(x) x.Route.ReadRouteType(id))
+            End Sub)
+    End Sub
 End Class

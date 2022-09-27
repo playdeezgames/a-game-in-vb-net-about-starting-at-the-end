@@ -16,5 +16,7 @@
     End Property
     Public Sub Move(route As IRoute) Implements ICharacterNavigation.Move
         WorldData.Character.WriteLocation(Id, route.ToLocation.Id)
+        Dim eventName = route.RouteType.UseEventName
+        WorldData.Events.Raise(eventName, Id, route.Id)
     End Sub
 End Class

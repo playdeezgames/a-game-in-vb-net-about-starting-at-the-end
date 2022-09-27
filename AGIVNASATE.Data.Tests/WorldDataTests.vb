@@ -17,6 +17,7 @@ Public Class WorldDataTests
         subject.LocationItem.ShouldNotBeNull
         subject.Player.ShouldNotBeNull
         subject.Route.ShouldNotBeNull
+        subject.RouteType.ShouldNotBeNull
         store.VerifyNoOtherCalls()
         events.VerifyNoOtherCalls()
     End Sub

@@ -43,4 +43,12 @@
             (Columns.FromLocationIdColumn, fromLocationId),
             (Columns.ToLocationIdColumn, toLocationId))
     End Function
+
+    Public Function ReadRouteType(routeId As Long) As Long? Implements IRouteData.ReadRouteType
+        Return Store.ReadColumnValue(Of Long, Long)(
+            AddressOf NoInitializer,
+            Tables.Routes,
+            Columns.RouteTypeIdColumn,
+            (Columns.RouteIdColumn, routeId))
+    End Function
 End Class

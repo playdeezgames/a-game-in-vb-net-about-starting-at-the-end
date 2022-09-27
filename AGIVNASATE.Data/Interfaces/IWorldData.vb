@@ -13,5 +13,6 @@ Public Interface IWorldData
     ReadOnly Property LocationItem As ILocationItemData
     ReadOnly Property Player As IPlayerData
     ReadOnly Property Route As IRouteData
+    ReadOnly Property RouteType As IRouteTypeData
     Sub Save(filename As String)
 End Interface

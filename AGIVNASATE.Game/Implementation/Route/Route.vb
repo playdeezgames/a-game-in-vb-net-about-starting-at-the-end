@@ -18,6 +18,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property RouteType As IRouteType Implements IRoute.RouteType
+        Get
+            Return Game.RouteType.FromId(WorldData, WorldData.Route.ReadRouteType(Id))
+        End Get
+    End Property
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As IRoute
         Return If(id.HasValue, New Route(worldData, id.Value), Nothing)
     End Function
