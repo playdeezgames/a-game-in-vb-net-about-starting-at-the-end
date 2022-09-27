@@ -22,4 +22,14 @@ Public Class EventDataTests
                 worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(characterId, itemTypeId))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldHandleUseSingleUsePortal()
+        WithEventsData(
+            Sub(worldData, subject)
+                Const eventName = "UseSingleUsePortal"
+                Const characterId = 1L
+                Const routeId = 2L
+                subject.Raise(eventName, characterId, routeId).ShouldBeNull
+            End Sub)
+    End Sub
 End Class
