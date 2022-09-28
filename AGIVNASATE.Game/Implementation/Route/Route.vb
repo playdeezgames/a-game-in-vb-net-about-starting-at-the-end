@@ -25,7 +25,7 @@
     End Property
 
     Public Sub Destroy() Implements IRoute.Destroy
-        'TODO: clear the record
+        WorldData.Route.Clear(Id)
     End Sub
 
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As IRoute

@@ -29,7 +29,9 @@ Public Class EventDataTests
                 Const eventName = "UseSingleUsePortal"
                 Const characterId = 1L
                 Const routeId = 2L
+                worldData.Setup(Sub(x) x.Route.Clear(It.IsAny(Of Long)))
                 subject.Raise(eventName, characterId, routeId).ShouldBeNull
+                worldData.Verify(Sub(x) x.Route.Clear(routeId))
             End Sub)
     End Sub
 End Class

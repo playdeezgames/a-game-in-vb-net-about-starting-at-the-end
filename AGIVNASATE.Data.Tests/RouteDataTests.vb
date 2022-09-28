@@ -61,7 +61,7 @@
             End Sub)
     End Sub
     <Fact>
-    Sub ShouldAttemptToReadTheRoutTypeForAGivenRoute()
+    Sub ShouldAttemptToReadTheRouteTypeForAGivenRoute()
         WithRouteData(
             Sub(store, subject)
                 Const id = 1L
@@ -91,6 +91,14 @@
                         (Columns.RouteNameColumn, routeName),
                         (Columns.FromLocationIdColumn, fromLocationId),
                         (Columns.ToLocationIdColumn, toLocationId)))
+            End Sub)
+    End Sub
+    <Fact>
+    Sub ShouldRemoveARouteRecordFromTheSttore()
+        WithRouteData(
+            Sub(store, subject)
+                Const id = 1L
+                subject.Clear(id)
             End Sub)
     End Sub
 End Class

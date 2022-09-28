@@ -6,6 +6,10 @@
         MyBase.New(store)
     End Sub
 
+    Public Sub Clear(routeId As Long) Implements IRouteData.Clear
+        'TODO: actually clear out the record
+    End Sub
+
     Public Function CountForFromLocation(fromLocationId As Long) As Long Implements IRouteData.CountForFromLocation
         Return Store.ReadCountForColumnValue(AddressOf NoInitializer, Tables.Routes, (Columns.FromLocationIdColumn, fromLocationId))
     End Function

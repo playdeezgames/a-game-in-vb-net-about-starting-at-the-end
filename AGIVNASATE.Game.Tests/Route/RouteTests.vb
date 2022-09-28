@@ -41,7 +41,9 @@
     Sub DestroyAGivenRoute()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Sub(x) x.Route.Clear(It.IsAny(Of Long)))
                 subject.Destroy()
+                worldData.Verify(Sub(x) x.Route.Clear(id))
             End Sub)
     End Sub
 End Class

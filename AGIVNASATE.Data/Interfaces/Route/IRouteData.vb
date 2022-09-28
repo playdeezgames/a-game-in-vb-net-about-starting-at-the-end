@@ -5,4 +5,5 @@
     Function ReadToLocation(routeId As Long) As Long?
     Function Create(routeTypeId As Long, routeName As String, fromLocationId As Long, toLocationId As Long) As Long
     Function ReadRouteType(routeId As Long) As Long?
+    Sub Clear(routeId As Long)
 End Interface
