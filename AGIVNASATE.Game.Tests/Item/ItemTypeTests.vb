@@ -25,7 +25,9 @@
     Sub ShouldFetchTheAbilityOfAnItemTypeToBeEquipped()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.ItemType.ReadCanEquip(It.IsAny(Of Long)))
                 subject.CanEquip.ShouldBeFalse
+                worldData.Verify(Function(x) x.ItemType.ReadCanEquip(id))
             End Sub)
     End Sub
 End Class

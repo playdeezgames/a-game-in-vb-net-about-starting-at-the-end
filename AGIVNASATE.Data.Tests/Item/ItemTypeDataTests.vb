@@ -33,4 +33,12 @@
                         (Columns.ItemTypeIdColumn, itemTypeId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldAttemptToReadTheCanEquipFlagForAGivenItemTypeFromTheStore()
+        WithItemTypeData(
+            Sub(store, subject)
+                Const itemTypeId = 1L
+                subject.ReadCanEquip(itemTypeId).ShouldBeNull
+            End Sub)
+    End Sub
 End Class

@@ -21,4 +21,8 @@
             Columns.UseEventNameColumn,
             (Columns.ItemTypeIdColumn, itemTypeId))
     End Function
+
+    Public Function ReadCanEquip(itemTypeId As Long) As Long? Implements IItemTypeData.ReadCanEquip
+        Return Nothing
+    End Function
 End Class
