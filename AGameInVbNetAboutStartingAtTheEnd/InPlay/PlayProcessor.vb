@@ -48,7 +48,7 @@
                 Case StatisticsText
                     StatisticsProcessor.Run(playerCharacter)
             End Select
-            done = playerCharacter.Statistics.IsDead
+            done = done OrElse playerCharacter.Statistics.IsDead
         End While
     End Sub
 End Module
