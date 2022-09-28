@@ -10,7 +10,7 @@
         WithItemTypeEquipSlotData(
             Sub(store, subject)
                 Const itemTypeId = 1L
-                subject.ReadCanEquip(itemTypeId).ShouldBe(0)
+                subject.CountForItemType(itemTypeId).ShouldBe(0)
                 store.Verify(
                     Function(x) x.ReadCountForColumnValue(
                         It.IsAny(Of Action),

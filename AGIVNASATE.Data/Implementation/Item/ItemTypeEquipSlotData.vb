@@ -6,7 +6,7 @@
         MyBase.New(store)
     End Sub
 
-    Public Function ReadCanEquip(itemTypeId As Long) As Long Implements IItemTypeEquipSlotData.ReadCanEquip
+    Public Function CountForItemType(itemTypeId As Long) As Long Implements IItemTypeEquipSlotData.CountForItemType
         Return Store.ReadCountForColumnValue(
             AddressOf NoInitializer,
             Tables.ItemTypeEquipSlots,

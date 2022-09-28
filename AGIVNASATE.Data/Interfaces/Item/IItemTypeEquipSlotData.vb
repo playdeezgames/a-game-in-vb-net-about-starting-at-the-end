@@ -1,3 +1,3 @@
 ﻿Public Interface IItemTypeEquipSlotData
-    Function ReadCanEquip(itemTypeId As Long) As Long
+    Function CountForItemType(itemTypeId As Long) As Long
 End Interface
