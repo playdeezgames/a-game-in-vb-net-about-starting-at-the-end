@@ -7,11 +7,17 @@
     End Sub
 
     Public Sub Clear(routeId As Long) Implements IRouteData.Clear
-        'TODO: actually clear out the record
+        Store.ClearForColumnValue(
+            AddressOf NoInitializer,
+            Tables.Routes,
+            (Columns.RouteIdColumn, routeId))
     End Sub
 
     Public Function CountForFromLocation(fromLocationId As Long) As Long Implements IRouteData.CountForFromLocation
-        Return Store.ReadCountForColumnValue(AddressOf NoInitializer, Tables.Routes, (Columns.FromLocationIdColumn, fromLocationId))
+        Return Store.ReadCountForColumnValue(
+            AddressOf NoInitializer,
+            Tables.Routes,
+            (Columns.FromLocationIdColumn, fromLocationId))
     End Function
 
     Public Function ReadName(routeId As Long) As String Implements IRouteData.ReadName

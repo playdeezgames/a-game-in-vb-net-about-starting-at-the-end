@@ -99,6 +99,11 @@
             Sub(store, subject)
                 Const id = 1L
                 subject.Clear(id)
+                store.Verify(
+                    Sub(x) x.ClearForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.Routes,
+                        (Columns.RouteIdColumn, id)))
             End Sub)
     End Sub
 End Class
