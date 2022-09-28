@@ -8,6 +8,7 @@ Public Interface IWorldData
     ReadOnly Property InventoryItem As IInventoryItemData
     ReadOnly Property Item As IItemData
     ReadOnly Property ItemType As IItemTypeData
+    ReadOnly Property ItemTypeEquipSlot As IItemTypeEquipSlotData
     ReadOnly Property Location As ILocationData
     Function ReadStartLocation() As Long?
     ReadOnly Property LocationItem As ILocationItemData

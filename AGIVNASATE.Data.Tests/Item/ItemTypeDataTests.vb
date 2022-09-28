@@ -33,17 +33,4 @@
                         (Columns.ItemTypeIdColumn, itemTypeId)))
             End Sub)
     End Sub
-    <Fact>
-    Sub ShouldAttemptToReadTheCanEquipFlagForAGivenItemTypeFromTheStore()
-        WithItemTypeData(
-            Sub(store, subject)
-                Const itemTypeId = 1L
-                subject.ReadCanEquip(itemTypeId).ShouldBe(0)
-                store.Verify(
-                    Function(x) x.ReadCountForColumnValue(
-                        It.IsAny(Of Action),
-                        Tables.ItemTypeEquipSlots,
-                        (Columns.ItemTypeIdColumn, itemTypeId)))
-            End Sub)
-    End Sub
 End Class

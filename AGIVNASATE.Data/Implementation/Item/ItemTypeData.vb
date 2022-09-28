@@ -21,11 +21,4 @@
             Columns.UseEventNameColumn,
             (Columns.ItemTypeIdColumn, itemTypeId))
     End Function
-
-    Public Function ReadCanEquip(itemTypeId As Long) As Long Implements IItemTypeData.ReadCanEquip
-        Return Store.ReadCountForColumnValue(
-            AddressOf NoInitializer,
-            Tables.ItemTypeEquipSlots,
-            (Columns.ItemTypeIdColumn, itemTypeId))
-    End Function
 End Class

@@ -12,6 +12,7 @@
         InventoryItem = New InventoryItemData(store)
         Item = New ItemData(store)
         ItemType = New ItemTypeData(store)
+        ItemTypeEquipSlot = New ItemTypeEquipSlotData(store)
         Location = New LocationData(store)
         LocationItem = New LocationItemData(store)
         Player = New PlayerData(store)
@@ -33,6 +34,7 @@
     Public ReadOnly Property Events As IEventsData Implements IWorldData.Events
     Public ReadOnly Property Item As IItemData Implements IWorldData.Item
     Public ReadOnly Property RouteType As IRouteTypeData Implements IWorldData.RouteType
+    Public ReadOnly Property ItemTypeEquipSlot As IItemTypeEquipSlotData Implements IWorldData.ItemTypeEquipSlot
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

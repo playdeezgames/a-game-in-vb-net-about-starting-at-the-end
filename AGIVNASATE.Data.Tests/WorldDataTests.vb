@@ -13,6 +13,7 @@ Public Class WorldDataTests
         subject.InventoryItem.ShouldNotBeNull
         subject.Item.ShouldNotBeNull
         subject.ItemType.ShouldNotBeNull
+        subject.ItemTypeEquipSlot.ShouldNotBeNull
         subject.Location.ShouldNotBeNull
         subject.LocationItem.ShouldNotBeNull
         subject.Player.ShouldNotBeNull
