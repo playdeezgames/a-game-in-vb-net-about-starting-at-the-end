@@ -4,6 +4,7 @@
     Public Const Inventories = "Inventories"
     Public Const InventoryItems = "InventoryItems"
     Public Const Items = "Items"
+    Public Const ItemTypeEquipSlots = "ItemTypeEquipSlots"
     Public Const ItemTypes = "ItemTypes"
     Public Const Locations = "Locations"
     Public Const Players = "Players"

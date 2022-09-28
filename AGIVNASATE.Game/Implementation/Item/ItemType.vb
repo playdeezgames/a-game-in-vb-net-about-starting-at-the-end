@@ -17,7 +17,7 @@
 
     Public ReadOnly Property CanEquip As Boolean Implements IItemType.CanEquip
         Get
-            Return If(WorldData.ItemType.ReadCanEquip(Id), 0) > 0
+            Return WorldData.ItemType.ReadCanEquip(Id) > 0
         End Get
     End Property
 
