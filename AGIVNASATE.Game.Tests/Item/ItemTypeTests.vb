@@ -21,4 +21,11 @@
                 worldData.Verify(Function(x) x.ItemType.ReadUseEventName(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldFetchTheAbilityOfAnItemTypeToBeEquipped()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.CanEquip.ShouldBeFalse
+            End Sub)
+    End Sub
 End Class

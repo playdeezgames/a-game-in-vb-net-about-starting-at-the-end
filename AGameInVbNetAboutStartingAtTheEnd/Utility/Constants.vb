@@ -2,6 +2,7 @@
     Friend Const AbandonGameText = "Abandon Game"
     Friend Const DatabaseFileName = "end.db"
     Friend Const DropAllText = "Drop All"
+    Friend Const EquipText = "Equip"
     Friend Const FightText = "FIGHT!"
     Friend Const GroundText = "Ground"
     Friend Const InventoryText = "Inventory"

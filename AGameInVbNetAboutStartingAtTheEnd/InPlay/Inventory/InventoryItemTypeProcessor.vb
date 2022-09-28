@@ -10,6 +10,9 @@
             If itemType.CanUse Then
                 prompt.AddChoice(UseText)
             End If
+            If itemType.CanEquip Then
+                prompt.AddChoice(EquipText)
+            End If
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
                 Case DropAllText
