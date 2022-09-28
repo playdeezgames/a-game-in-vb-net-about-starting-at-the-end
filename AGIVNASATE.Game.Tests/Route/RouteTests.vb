@@ -37,4 +37,11 @@
                 worldData.Verify(Function(x) x.Route.ReadRouteType(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub DestroyAGivenRoute()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Destroy()
+            End Sub)
+    End Sub
 End Class

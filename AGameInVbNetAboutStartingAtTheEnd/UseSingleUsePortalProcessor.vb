@@ -1,6 +1,6 @@
 ﻿Module UseSingleUsePortalProcessor
     Friend Function Run(character As ICharacter, route As IRoute) As String
-        'TODO: destroy route
+        route.Destroy()
         Return Nothing
     End Function
 End Module
