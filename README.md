@@ -16,6 +16,12 @@ XX A Game in VB.NET About Starting at the End #JernJam
 * 12 - 20220927
 * 13 - 20220928
 
+# Stuff To Do Before Jam End
+
+* Equip items
+* Unequip items
+* Give stat buffs for equipped items 
+
 # Randomly Chosen Design Decisions
 
 * 20220917 - "Keep It Alive", ergo, a survival game
