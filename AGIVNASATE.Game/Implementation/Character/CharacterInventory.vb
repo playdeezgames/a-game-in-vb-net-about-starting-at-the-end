@@ -57,10 +57,10 @@
         If Not itemType.CanEquip Then
             Return
         End If
-        'Dim items = ItemsOfItemType(itemType)
-        'If Not items.Any Then
-        '    Return
-        'End If
+        Dim items = ItemsOfItemType(itemType)
+        If Not items.Any Then
+            Return
+        End If
         'equip the item
     End Sub
 

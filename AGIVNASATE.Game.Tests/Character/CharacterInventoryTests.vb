@@ -104,9 +104,11 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
-                worldData.Setup(Function(x) x.ItemTypeEquipSlot.CountForItemType(It.IsAny(Of Long)))
+                worldData.Setup(Function(x) x.ItemTypeEquipSlot.CountForItemType(It.IsAny(Of Long))).Returns(1L)
+                worldData.Setup(Function(x) x.CharacterItem.ReadForItemType(It.IsAny(Of Long), It.IsAny(Of Long)))
                 subject.EquipItemOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
                 worldData.Verify(Function(x) x.ItemTypeEquipSlot.CountForItemType(itemTypeId))
+                worldData.Verify(Function(x) x.CharacterItem.ReadForItemType(id, itemTypeId))
             End Sub)
     End Sub
 End Class
