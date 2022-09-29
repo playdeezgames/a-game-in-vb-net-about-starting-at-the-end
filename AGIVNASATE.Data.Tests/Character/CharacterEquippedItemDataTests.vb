@@ -28,6 +28,11 @@
             Sub(store, subject)
                 Const characterId = 1L
                 subject.CountForCharacter(characterId).ShouldBe(0)
+                store.Verify(
+                    Function(x) x.ReadCountForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.CharacterEquippedItems,
+                        (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
 End Class

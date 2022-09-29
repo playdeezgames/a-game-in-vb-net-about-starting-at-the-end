@@ -16,6 +16,9 @@
     End Sub
 
     Public Function CountForCharacter(characterId As Long) As Long Implements ICharacterEquippedItemData.CountForCharacter
-        Return 0L
+        Return Store.ReadCountForColumnValue(
+            AddressOf NoInitializer,
+            Tables.CharacterEquippedItems,
+            (Columns.CharacterIdColumn, characterId))
     End Function
 End Class
