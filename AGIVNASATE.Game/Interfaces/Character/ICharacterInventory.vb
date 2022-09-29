@@ -6,4 +6,5 @@
     Sub DropItemsOfItemType(itemType As IItemType)
     Sub TakeItemsOfItemType(itemType As IItemType)
     Function UseItemOfItemType(itemType As IItemType) As String
+    Sub EquipItemOfItemType(itemType As IItemType)
 End Interface

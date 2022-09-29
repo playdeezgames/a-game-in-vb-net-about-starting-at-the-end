@@ -53,6 +53,10 @@
         Return Nothing
     End Function
 
+    Public Sub EquipItemOfItemType(itemType As IItemType) Implements ICharacterInventory.EquipItemOfItemType
+        'TODO
+    End Sub
+
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems
         Get
             Return WorldData.CharacterItem.ReadCountForCharacter(Id) > 0L
