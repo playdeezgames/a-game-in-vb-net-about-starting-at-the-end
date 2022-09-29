@@ -54,7 +54,14 @@
     End Function
 
     Public Sub EquipItemOfItemType(itemType As IItemType) Implements ICharacterInventory.EquipItemOfItemType
-        'TODO
+        If Not itemType.CanEquip Then
+            Return
+        End If
+        'Dim items = ItemsOfItemType(itemType)
+        'If Not items.Any Then
+        '    Return
+        'End If
+        'equip the item
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems

@@ -104,7 +104,9 @@
         WithSubject(
             Sub(worldData, id, subject)
                 Const itemTypeId = 2L
+                worldData.Setup(Function(x) x.ItemTypeEquipSlot.CountForItemType(It.IsAny(Of Long)))
                 subject.EquipItemOfItemType(ItemType.FromId(worldData.Object, itemTypeId))
+                worldData.Verify(Function(x) x.ItemTypeEquipSlot.CountForItemType(itemTypeId))
             End Sub)
     End Sub
 End Class
