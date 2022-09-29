@@ -6,6 +6,12 @@
         MyBase.New(worlddata, id)
     End Sub
 
+    Public ReadOnly Property Name As String Implements IItem.Name
+        Get
+            Return Nothing
+        End Get
+    End Property
+
     Public Sub Destroy() Implements IItem.Destroy
         WorldData.Item.Clear(Id)
     End Sub

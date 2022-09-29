@@ -21,4 +21,11 @@
                 worldData.Verify(Sub(x) x.Item.Clear(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheNameOfAGivenItem()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Name.ShouldBeNull
+            End Sub)
+    End Sub
 End Class
