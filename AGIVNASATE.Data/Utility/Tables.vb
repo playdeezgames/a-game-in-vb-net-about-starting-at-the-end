@@ -2,6 +2,7 @@
     Public Const Characters = "Characters"
     Public Const CharacterEquippedItems = "CharacterEquippedItems"
     Public Const CharacterStatistics = "CharacterStatistics"
+    Public Const EquipSlots = "EquipSlots"
     Public Const Inventories = "Inventories"
     Public Const InventoryItems = "InventoryItems"
     Public Const Items = "Items"

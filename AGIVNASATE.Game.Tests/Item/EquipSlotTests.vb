@@ -16,7 +16,9 @@
     Sub ShouldGiveMeTheNameOfAGivenEquipSlot()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.EquipSlot.ReadName(It.IsAny(Of Long)))
                 subject.Name.ShouldBeNull
+                worldData.Verify(Function(x) x.EquipSlot.ReadName(id))
             End Sub)
     End Sub
 End Class

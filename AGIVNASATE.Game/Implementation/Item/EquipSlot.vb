@@ -8,7 +8,7 @@
 
     Public ReadOnly Property Name As String Implements IEquipSlot.Name
         Get
-            Return Nothing
+            Return WorldData.EquipSlot.ReadName(Id)
         End Get
     End Property
 
