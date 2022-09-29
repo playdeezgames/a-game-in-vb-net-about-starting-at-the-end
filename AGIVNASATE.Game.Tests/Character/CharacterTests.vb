@@ -54,4 +54,11 @@
                 subject.World.ShouldNotBeNull
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldCheckForTheExistenceOfEquipmentForAGivenCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.HasEquipment.ShouldBeFalse
+            End Sub)
+    End Sub
 End Class

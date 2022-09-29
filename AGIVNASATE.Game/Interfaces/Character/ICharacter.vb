@@ -6,4 +6,5 @@
     ReadOnly Property Combat As ICharacterCombat
     ReadOnly Property Inventory As ICharacterInventory
     ReadOnly Property World As IWorld
+    ReadOnly Property HasEquipment As Boolean
 End Interface
