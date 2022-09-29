@@ -63,4 +63,11 @@
                 worldData.Verify(Function(x) x.CharacterEquippedItem.CountForCharacter(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheCurrentlyOccupiedEquipSlotsOfAGivenCharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.EquippedItems.ShouldBeEmpty
+            End Sub)
+    End Sub
 End Class

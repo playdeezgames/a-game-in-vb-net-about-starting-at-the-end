@@ -40,6 +40,8 @@
             Select Case AnsiConsole.Prompt(prompt)
                 Case AbandonGameText
                     done = Confirm("Are you sure you want to abandon the game?")
+                Case EquipmentText
+                    EquipmentProcessor.Run(playerCharacter)
                 Case FightText
                     FightProcessor.Run(playerCharacter)
                 Case GroundText

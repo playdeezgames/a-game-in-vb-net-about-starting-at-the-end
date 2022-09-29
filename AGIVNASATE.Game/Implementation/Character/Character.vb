@@ -46,6 +46,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property EquippedItems As IReadOnlyDictionary(Of IEquipSlot, IItem) Implements ICharacter.EquippedItems
+        Get
+            Return New Dictionary(Of IEquipSlot, IItem)
+        End Get
+    End Property
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function
