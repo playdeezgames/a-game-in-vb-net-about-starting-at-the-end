@@ -4,6 +4,7 @@
     Sub New(store As IStore, events As IEventsData)
         Me.Store = store
         Character = New CharacterData(store)
+        CharacterEquippedItem = New CharacterEquippedItemData(store)
         CharacterItem = New CharacterItemData(store)
         CharacterLocationEsteem = New CharacterLocationEsteemData(store)
         CharacterStatistic = New CharacterStatisticData(store)
@@ -35,6 +36,7 @@
     Public ReadOnly Property Item As IItemData Implements IWorldData.Item
     Public ReadOnly Property RouteType As IRouteTypeData Implements IWorldData.RouteType
     Public ReadOnly Property ItemTypeEquipSlot As IItemTypeEquipSlotData Implements IWorldData.ItemTypeEquipSlot
+    Public ReadOnly Property CharacterEquippedItem As ICharacterEquippedItemData Implements IWorldData.CharacterEquippedItem
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

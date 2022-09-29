@@ -12,4 +12,12 @@
             Tables.ItemTypeEquipSlots,
             (Columns.ItemTypeIdColumn, itemTypeId))
     End Function
+
+    Public Function ReadForItemType(itemTypeId As Long) As IEnumerable(Of Long) Implements IItemTypeEquipSlotData.ReadForItemType
+        Return Store.ReadRecordsWithColumnValue(Of Long, Long)(
+            AddressOf NoInitializer,
+            Tables.ItemTypeEquipSlots,
+            Columns.EquipSlotIdColumn,
+            (Columns.ItemTypeIdColumn, itemTypeId))
+    End Function
 End Class

@@ -1,5 +1,6 @@
 Public Interface IWorldData
     ReadOnly Property Character As ICharacterData
+    ReadOnly Property CharacterEquippedItem As ICharacterEquippedItemData
     ReadOnly Property CharacterItem As ICharacterItemData
     ReadOnly Property CharacterLocationEsteem As ICharacterLocationEsteemData
     ReadOnly Property CharacterStatistic As ICharacterStatisticData

@@ -13,4 +13,11 @@
             (Columns.InventoryIdColumn, inventoryId),
             (Columns.ItemIdColumn, itemId))
     End Sub
+
+    Public Sub ClearForItem(itemId As Long) Implements IInventoryItemData.ClearForItem
+        Store.ClearForColumnValue(
+            AddressOf NoInitializer,
+            Tables.InventoryItems,
+            (Columns.ItemIdColumn, itemId))
+    End Sub
 End Class

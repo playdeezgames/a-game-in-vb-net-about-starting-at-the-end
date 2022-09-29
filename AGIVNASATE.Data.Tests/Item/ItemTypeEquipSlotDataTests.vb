@@ -18,4 +18,18 @@
                         (Columns.ItemTypeIdColumn, itemTypeId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldAttemptToReadTheEquipSlotsAssociatedWithAGivenItemType()
+        WithItemTypeEquipSlotData(
+            Sub(store, subject)
+                Const itemTypeId = 1L
+                subject.ReadForItemType(itemTypeId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadRecordsWithColumnValue(Of Long, Long)(
+                    It.IsAny(Of Action),
+                    Tables.ItemTypeEquipSlots,
+                    Columns.EquipSlotIdColumn,
+                    (Columns.ItemTypeIdColumn, itemTypeId)))
+            End Sub)
+    End Sub
 End Class

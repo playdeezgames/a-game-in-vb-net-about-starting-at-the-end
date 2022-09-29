@@ -30,4 +30,13 @@
                 worldData.Verify(Function(x) x.ItemTypeEquipSlot.CountForItemType(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldFetchAnAssociatedEquipSlot()
+        WithSubject(
+            Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.ItemTypeEquipSlot.ReadForItemType(It.IsAny(Of Long)))
+                subject.EquipSlots.ShouldBeEmpty
+                worldData.Verify(Function(x) x.ItemTypeEquipSlot.ReadForItemType(id))
+            End Sub)
+    End Sub
 End Class

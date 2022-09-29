@@ -5,6 +5,7 @@ Public Class WorldDataTests
         Dim events As New Mock(Of IEventsData)
         Dim subject As IWorldData = New WorldData(store.Object, events.Object)
         subject.Character.ShouldNotBeNull
+        subject.CharacterEquippedItem.ShouldNotBeNull
         subject.CharacterItem.ShouldNotBeNull
         subject.CharacterLocationEsteem.ShouldNotBeNull
         subject.CharacterStatistic.ShouldNotBeNull

@@ -21,6 +21,11 @@
         End Get
     End Property
 
+    Public ReadOnly Property EquipSlots As IEnumerable(Of IEquipSlot) Implements IItemType.EquipSlots
+        Get
+            Return WorldData.ItemTypeEquipSlot.ReadForItemType(Id).Select(Function(x) EquipSlot.FromId(WorldData, x))
+        End Get
+    End Property
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As IItemType
         Return If(id.HasValue, New ItemType(worldData, id.Value), Nothing)
     End Function

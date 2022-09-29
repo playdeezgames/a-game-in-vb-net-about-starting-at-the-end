@@ -61,7 +61,13 @@
         If Not items.Any Then
             Return
         End If
-        'equip the item
+        Dim item = items.First
+        Dim equipSlots = itemType.EquipSlots
+        'TODO: unequip whatever item is already there!
+        WorldData.InventoryItem.ClearForItem(item.Id)
+        For Each equipSlot In equipSlots
+            WorldData.CharacterEquippedItem.Write(Id, equipSlot.Id, item.Id)
+        Next
     End Sub
 
     Public ReadOnly Property HasItems As Boolean Implements ICharacterInventory.HasItems

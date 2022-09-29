@@ -20,4 +20,17 @@
                         (Columns.ItemIdColumn, itemId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldRemoveRecordsFromTheInventoryItemsInTheStore()
+        WithItemData(
+            Sub(store, subject)
+                Const itemId = 1L
+                subject.ClearForItem(itemId)
+                store.Verify(
+                    Sub(x) x.ClearForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.InventoryItems,
+                        (Columns.ItemIdColumn, itemId)))
+            End Sub)
+    End Sub
 End Class

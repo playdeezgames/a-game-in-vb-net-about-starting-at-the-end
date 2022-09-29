@@ -1,5 +1,6 @@
 ﻿Public Module Tables
     Public Const Characters = "Characters"
+    Public Const CharacterEquippedItems = "CharacterEquippedItems"
     Public Const CharacterStatistics = "CharacterStatistics"
     Public Const Inventories = "Inventories"
     Public Const InventoryItems = "InventoryItems"

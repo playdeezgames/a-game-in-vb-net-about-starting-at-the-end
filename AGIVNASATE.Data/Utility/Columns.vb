@@ -1,6 +1,7 @@
 ﻿Public Module Columns
     Public Const CharacterIdColumn = "CharacterId"
     Public Const CharacterNameColumn = "CharacterName"
+    Public Const EquipSlotIdColumn = "EquipSlotId"
     Public Const EsteemColumn = "Esteem"
     Public Const FromCharacterIdColumn = "FromCharacterId"
     Public Const FromLocationIdColumn = "FromLocationId"
