@@ -23,6 +23,10 @@
     End Function
 
     Public Function ReadForCharacter(characterId As Long) As IEnumerable(Of Tuple(Of Long, Long)) Implements ICharacterEquippedItemData.ReadForCharacter
-        Return Nothing
+        Return Store.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+            AddressOf NoInitializer,
+            Tables.CharacterEquippedItems,
+            (Columns.EquipSlotIdColumn, Columns.ItemIdColumn),
+            (Columns.CharacterIdColumn, characterId))
     End Function
 End Class

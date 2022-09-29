@@ -41,6 +41,12 @@
             Sub(store, subject)
                 Const characterId = 1L
                 subject.ReadForCharacter(characterId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadRecordsWithColumnValue(Of Long, Long, Long)(
+                        It.IsAny(Of Action),
+                        Tables.CharacterEquippedItems,
+                        (Columns.EquipSlotIdColumn, Columns.ItemIdColumn),
+                        (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
 End Class
