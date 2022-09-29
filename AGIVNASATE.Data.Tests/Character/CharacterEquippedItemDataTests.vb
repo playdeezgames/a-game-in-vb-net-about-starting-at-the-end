@@ -22,4 +22,12 @@
                         (Columns.ItemIdColumn, itemId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadHowManyItemsAreEquippedForAGivenCharacter()
+        WithCharacterEquippedItemData(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.CountForCharacter(characterId).ShouldBe(0)
+            End Sub)
+    End Sub
 End Class

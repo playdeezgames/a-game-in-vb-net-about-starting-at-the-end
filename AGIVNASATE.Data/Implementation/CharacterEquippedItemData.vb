@@ -14,4 +14,8 @@
             (Columns.EquipSlotIdColumn, equipSlotId),
             (Columns.ItemIdColumn, itemId))
     End Sub
+
+    Public Function CountForCharacter(characterId As Long) As Long Implements ICharacterEquippedItemData.CountForCharacter
+        Return 0L
+    End Function
 End Class

@@ -42,8 +42,7 @@
 
     Public ReadOnly Property HasEquipment As Boolean Implements ICharacter.HasEquipment
         Get
-            'TODO
-            Return False
+            Return WorldData.CharacterEquippedItem.CountForCharacter(Id) > 0
         End Get
     End Property
 

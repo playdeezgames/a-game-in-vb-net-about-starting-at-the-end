@@ -58,7 +58,9 @@
     Sub ShouldCheckForTheExistenceOfEquipmentForAGivenCharacter()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterEquippedItem.CountForCharacter(It.IsAny(Of Long)))
                 subject.HasEquipment.ShouldBeFalse
+                worldData.Verify(Function(x) x.CharacterEquippedItem.CountForCharacter(id))
             End Sub)
     End Sub
 End Class
