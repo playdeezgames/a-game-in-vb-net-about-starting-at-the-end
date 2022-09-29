@@ -35,4 +35,12 @@
                         (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldReadTheEquippedItemSlotsForAGivenCharacter()
+        WithCharacterEquippedItemData(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.ReadForCharacter(characterId).ShouldBeNull
+            End Sub)
+    End Sub
 End Class

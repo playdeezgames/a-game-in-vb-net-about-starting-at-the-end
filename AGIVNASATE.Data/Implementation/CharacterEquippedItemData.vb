@@ -21,4 +21,8 @@
             Tables.CharacterEquippedItems,
             (Columns.CharacterIdColumn, characterId))
     End Function
+
+    Public Function ReadForCharacter(characterId As Long) As IEnumerable(Of Tuple(Of Long, Long)) Implements ICharacterEquippedItemData.ReadForCharacter
+        Return Nothing
+    End Function
 End Class

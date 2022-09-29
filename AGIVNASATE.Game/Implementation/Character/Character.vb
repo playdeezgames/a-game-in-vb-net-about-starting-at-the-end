@@ -48,7 +48,8 @@
 
     Public ReadOnly Property EquippedItems As IReadOnlyDictionary(Of IEquipSlot, IItem) Implements ICharacter.EquippedItems
         Get
-            Return New Dictionary(Of IEquipSlot, IItem)
+            Dim results As IEnumerable(Of Tuple(Of Long, Long)) = WorldData.CharacterEquippedItem.ReadForCharacter(Id)
+            Return results.ToDictionary(Function(x) EquipSlot.FromId(WorldData, x.Item1), Function(x) Item.FromId(WorldData, x.Item2))
         End Get
     End Property
 

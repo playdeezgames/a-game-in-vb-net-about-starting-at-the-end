@@ -67,7 +67,9 @@
     Sub ShouldReadTheCurrentlyOccupiedEquipSlotsOfAGivenCharacter()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterEquippedItem.ReadForCharacter(It.IsAny(Of Long)))
                 subject.EquippedItems.ShouldBeEmpty
+                worldData.Verify(Function(x) x.CharacterEquippedItem.ReadForCharacter(id))
             End Sub)
     End Sub
 End Class
