@@ -55,6 +55,11 @@
 
     Public Sub Destroy() Implements ICharacter.Destroy
         'TODO
+        Dim itemTypeIds = WorldData.CharacterItem.ReadForCharacter(Id).Select(Function(x) x.Item2).Distinct()
+        For Each itemTypeId In itemTypeIds
+            Inventory.DropItemsOfItemType(ItemType.FromId(WorldData, itemTypeId))
+        Next
+        'remove character records
     End Sub
 
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter

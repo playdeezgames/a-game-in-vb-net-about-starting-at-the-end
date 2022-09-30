@@ -76,7 +76,9 @@
     Sub ShouldDestroyACharacter()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.CharacterItem.ReadForCharacter(It.IsAny(Of Long)))
                 subject.Destroy()
+                worldData.Verify(Function(x) x.CharacterItem.ReadForCharacter(id))
             End Sub)
     End Sub
 End Class
