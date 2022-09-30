@@ -80,11 +80,13 @@
                 worldData.Setup(Sub(x) x.CharacterEquippedItem.ClearForCharacter(It.IsAny(Of Long)))
                 worldData.Setup(Sub(x) x.CharacterStatistic.ClearForCharacter(It.IsAny(Of Long)))
                 worldData.Setup(Sub(x) x.Inventory.ClearForCharacter(It.IsAny(Of Long)))
+                worldData.Setup(Sub(x) x.Character.Clear(It.IsAny(Of Long)))
                 subject.Destroy()
                 worldData.Verify(Function(x) x.CharacterItem.ReadForCharacter(id))
                 worldData.Verify(Sub(x) x.CharacterEquippedItem.ClearForCharacter(id))
                 worldData.Verify(Sub(x) x.CharacterStatistic.ClearForCharacter(id))
                 worldData.Verify(Sub(x) x.Inventory.ClearForCharacter(id))
+                worldData.Verify(Sub(x) x.Character.Clear(id))
             End Sub)
     End Sub
 End Class

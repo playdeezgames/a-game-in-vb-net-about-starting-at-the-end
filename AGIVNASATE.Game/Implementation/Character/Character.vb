@@ -58,11 +58,10 @@
         For Each itemTypeId In itemTypeIds
             Inventory.DropItemsOfItemType(ItemType.FromId(WorldData, itemTypeId))
         Next
-        'remove character records
         WorldData.CharacterEquippedItem.ClearForCharacter(Id)
         WorldData.CharacterStatistic.ClearForCharacter(Id)
         WorldData.Inventory.ClearForCharacter(Id)
-        'WorldData.Character.Clear(Id)
+        WorldData.Character.Clear(Id)
     End Sub
 
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter

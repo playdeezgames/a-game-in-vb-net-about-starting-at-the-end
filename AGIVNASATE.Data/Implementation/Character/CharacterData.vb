@@ -14,6 +14,13 @@
             (Columns.CharacterIdColumn, characterId))
     End Sub
 
+    Public Sub Clear(characterId As Long) Implements ICharacterData.Clear
+        Store.ClearForColumnValue(
+            AddressOf NoInitializer,
+            Tables.Characters,
+            (Columns.CharacterIdColumn, characterId))
+    End Sub
+
     Public Function ReadName(characterId As Long) As String Implements ICharacterData.ReadName
         Return Store.ReadColumnString(
             AddressOf NoInitializer,

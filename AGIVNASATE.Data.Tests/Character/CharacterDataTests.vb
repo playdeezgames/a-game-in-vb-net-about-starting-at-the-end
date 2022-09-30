@@ -62,4 +62,17 @@
                         (Columns.LocationIdColumn, locationId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldClearACharacterOutOfTheStore()
+        WithCharacterData(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.Clear(characterId)
+                store.Verify(
+                    Sub(x) x.ClearForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.Characters,
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
 End Class
