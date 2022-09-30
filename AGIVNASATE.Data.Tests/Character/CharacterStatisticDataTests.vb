@@ -37,4 +37,17 @@
                              (Columns.StatisticValueColumn, statisticValue)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldClearOutStatisticsForAGiveCharacter()
+        WithCharacterStatisticData(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.ClearForCharacter(characterId)
+                store.Verify(
+                    Sub(x) x.ClearForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.CharacterStatistics,
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
 End Class
