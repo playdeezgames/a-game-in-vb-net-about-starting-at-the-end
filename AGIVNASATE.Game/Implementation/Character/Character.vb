@@ -53,6 +53,10 @@
         End Get
     End Property
 
+    Public Sub Destroy() Implements ICharacter.Destroy
+        'TODO
+    End Sub
+
     Public Shared Function FromId(worldData As IWorldData, id As Long?) As ICharacter
         Return If(id.HasValue, New Character(worldData, id.Value), Nothing)
     End Function

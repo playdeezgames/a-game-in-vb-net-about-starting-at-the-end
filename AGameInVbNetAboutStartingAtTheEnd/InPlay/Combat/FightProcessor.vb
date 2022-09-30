@@ -5,6 +5,10 @@
             Return
         End If
         AttackProcessor.Run(character, enemy)
+        If enemy.Statistics.IsDead Then
+            enemy.Destroy()
+            Return
+        End If
         CounterAttackProcessor.Run(character)
     End Sub
     Private Function ChooseEnemy(enemies As IEnumerable(Of ICharacter)) As ICharacter

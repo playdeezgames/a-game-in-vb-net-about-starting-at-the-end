@@ -72,4 +72,11 @@
                 worldData.Verify(Function(x) x.CharacterEquippedItem.ReadForCharacter(id))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldDestroyACharacter()
+        WithSubject(
+            Sub(worldData, id, subject)
+                subject.Destroy()
+            End Sub)
+    End Sub
 End Class
