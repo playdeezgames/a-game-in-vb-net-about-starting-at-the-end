@@ -59,4 +59,17 @@
                         (Columns.CharacterIdColumn, characterId)))
             End Sub)
     End Sub
+    <Fact>
+    Sub ShouldClearOutAnInventoryForAGivenCharacter()
+        WithInventoryDta(
+            Sub(store, subject)
+                Const characterId = 1L
+                subject.ClearForCharacter(characterId)
+                store.Verify(
+                    Sub(x) x.ClearForColumnValue(
+                        It.IsAny(Of Action),
+                        Tables.Inventories,
+                        (Columns.CharacterIdColumn, characterId)))
+            End Sub)
+    End Sub
 End Class

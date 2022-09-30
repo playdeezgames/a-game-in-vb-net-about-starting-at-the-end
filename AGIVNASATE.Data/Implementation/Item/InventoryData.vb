@@ -6,6 +6,13 @@
         MyBase.New(store)
     End Sub
 
+    Public Sub ClearForCharacter(characterId As Long) Implements IInventoryData.ClearForCharacter
+        Store.ClearForColumnValue(
+            AddressOf NoInitializer,
+            Tables.Inventories,
+            (Columns.CharacterIdColumn, characterId))
+    End Sub
+
     Public Function ReadForLocation(locationId As Long) As Long? Implements IInventoryData.ReadForLocation
         Return Store.ReadColumnValue(Of Long, Long)(
             AddressOf NoInitializer,

@@ -61,7 +61,7 @@
         'remove character records
         WorldData.CharacterEquippedItem.ClearForCharacter(Id)
         WorldData.CharacterStatistic.ClearForCharacter(Id)
-        'WorldData.Inventory.ClearForCharacter(Id)
+        WorldData.Inventory.ClearForCharacter(Id)
         'WorldData.Character.Clear(Id)
     End Sub
 
