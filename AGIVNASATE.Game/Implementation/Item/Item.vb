@@ -8,7 +8,7 @@
 
     Public ReadOnly Property Name As String Implements IItem.Name
         Get
-            Return Nothing
+            Return WorldData.ItemName.Read(Id)
         End Get
     End Property
 

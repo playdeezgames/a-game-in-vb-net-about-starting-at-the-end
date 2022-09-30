@@ -25,7 +25,9 @@
     Sub ShouldReadTheNameOfAGivenItem()
         WithSubject(
             Sub(worldData, id, subject)
+                worldData.Setup(Function(x) x.ItemName.Read(It.IsAny(Of Long)))
                 subject.Name.ShouldBeNull
+                worldData.Verify(Function(x) x.ItemName.Read(id))
             End Sub)
     End Sub
 End Class

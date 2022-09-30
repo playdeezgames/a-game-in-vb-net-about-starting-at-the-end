@@ -16,10 +16,10 @@ XX A Game in VB.NET About Starting at the End #JernJam
 * 12 - 20220927
 * 13 - 20220928
 * 14 - 20220929
+* 15 - 20220930
 
 # Stuff To Do Before Jam End
 
-* Equip items
 * Unequip items
 * Give stat buffs for equipped items 
 

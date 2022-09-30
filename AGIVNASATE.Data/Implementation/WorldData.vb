@@ -13,6 +13,7 @@
         Inventory = New InventoryData(store)
         InventoryItem = New InventoryItemData(store)
         Item = New ItemData(store)
+        ItemName = New ItemNameData(store)
         ItemType = New ItemTypeData(store)
         ItemTypeEquipSlot = New ItemTypeEquipSlotData(store)
         Location = New LocationData(store)
@@ -39,6 +40,7 @@
     Public ReadOnly Property ItemTypeEquipSlot As IItemTypeEquipSlotData Implements IWorldData.ItemTypeEquipSlot
     Public ReadOnly Property CharacterEquippedItem As ICharacterEquippedItemData Implements IWorldData.CharacterEquippedItem
     Public ReadOnly Property EquipSlot As IEquipSlotData Implements IWorldData.EquipSlot
+    Public ReadOnly Property ItemName As IItemNameData Implements IWorldData.ItemName
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

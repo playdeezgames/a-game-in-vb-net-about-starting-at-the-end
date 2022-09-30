@@ -9,6 +9,7 @@ Public Interface IWorldData
     ReadOnly Property Inventory As IInventoryData
     ReadOnly Property InventoryItem As IInventoryItemData
     ReadOnly Property Item As IItemData
+    ReadOnly Property ItemName As IItemNameData
     ReadOnly Property ItemType As IItemTypeData
     ReadOnly Property ItemTypeEquipSlot As IItemTypeEquipSlotData
     ReadOnly Property Location As ILocationData
