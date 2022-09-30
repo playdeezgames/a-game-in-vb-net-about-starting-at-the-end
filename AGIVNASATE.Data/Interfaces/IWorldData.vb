@@ -4,6 +4,7 @@ Public Interface IWorldData
     ReadOnly Property CharacterItem As ICharacterItemData
     ReadOnly Property CharacterLocationEsteem As ICharacterLocationEsteemData
     ReadOnly Property CharacterStatistic As ICharacterStatisticData
+    ReadOnly Property CharacterStatisticBuff As ICharacterStatisticBuffData
     ReadOnly Property EquipSlot As IEquipSlotData
     ReadOnly Property Events As IEventsData
     ReadOnly Property Inventory As IInventoryData

@@ -9,6 +9,7 @@ Public Class WorldDataTests
         subject.CharacterItem.ShouldNotBeNull
         subject.CharacterLocationEsteem.ShouldNotBeNull
         subject.CharacterStatistic.ShouldNotBeNull
+        subject.CharacterStatisticBuff.ShouldNotBeNull
         subject.EquipSlot.ShouldNotBeNull
         subject.Events.ShouldNotBeNull
         subject.Inventory.ShouldNotBeNull

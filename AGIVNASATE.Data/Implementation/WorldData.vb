@@ -8,6 +8,7 @@
         CharacterItem = New CharacterItemData(store)
         CharacterLocationEsteem = New CharacterLocationEsteemData(store)
         CharacterStatistic = New CharacterStatisticData(store)
+        CharacterStatisticBuff = New CharacterStatisticBuffData(store)
         EquipSlot = New EquipSlotData(store)
         Me.Events = events
         Inventory = New InventoryData(store)
@@ -41,6 +42,7 @@
     Public ReadOnly Property CharacterEquippedItem As ICharacterEquippedItemData Implements IWorldData.CharacterEquippedItem
     Public ReadOnly Property EquipSlot As IEquipSlotData Implements IWorldData.EquipSlot
     Public ReadOnly Property ItemName As IItemNameData Implements IWorldData.ItemName
+    Public ReadOnly Property CharacterStatisticBuff As ICharacterStatisticBuffData Implements IWorldData.CharacterStatisticBuff
 
     Public Sub Save(filename As String) Implements IWorldData.Save
         Store.Save(filename)

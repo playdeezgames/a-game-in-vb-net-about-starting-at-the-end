@@ -1,4 +1,5 @@
 ﻿Public Module Columns
+    Public Const BuffColumn = "Buff"
     Public Const CharacterIdColumn = "CharacterId"
     Public Const CharacterNameColumn = "CharacterName"
     Public Const EquipSlotIdColumn = "EquipSlotId"

@@ -27,11 +27,14 @@
             Sub(worldData, id, subject)
                 Const enemyId = 2L
                 worldData.Setup(Function(x) x.CharacterStatistic.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
+                worldData.Setup(Function(x) x.CharacterStatisticBuff.Read(It.IsAny(Of Long), It.IsAny(Of Long)))
                 Dim enemy = Character.FromId(worldData.Object, enemyId)
                 Dim actual = subject.Attack(enemy)
                 actual.Item1.ShouldBe(0)
                 actual.Item2.ShouldBeTrue
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(id, CharacterStatistics.AttackStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatisticBuff.Read(id, CharacterStatistics.AttackStatisticTypeId))
+                worldData.Verify(Function(x) x.CharacterStatisticBuff.Read(enemyId, CharacterStatistics.DefendStatisticTypeId))
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.MaximumHealthStatisticTypeId))
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.WoundsStatisticTypeId))
                 worldData.Verify(Function(x) x.CharacterStatistic.Read(enemyId, CharacterStatistics.DefendStatisticTypeId))

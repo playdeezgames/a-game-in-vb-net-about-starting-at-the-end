@@ -43,13 +43,15 @@
     Public Const AttackStatisticTypeId = 5L
     Public ReadOnly Property Attack As Long Implements ICharacterStatistics.Attack
         Get
-            Return If(WorldData.CharacterStatistic.Read(Id, AttackStatisticTypeId), 0)
+            Return If(WorldData.CharacterStatistic.Read(Id, AttackStatisticTypeId), 0) +
+                If(WorldData.CharacterStatisticBuff.Read(Id, AttackStatisticTypeId), 0)
         End Get
     End Property
     Public Const DefendStatisticTypeId = 6L
     Public ReadOnly Property Defend As Long Implements ICharacterStatistics.Defend
         Get
-            Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0)
+            Return If(WorldData.CharacterStatistic.Read(Id, DefendStatisticTypeId), 0) +
+                If(WorldData.CharacterStatisticBuff.Read(Id, DefendStatisticTypeId), 0)
         End Get
     End Property
 
