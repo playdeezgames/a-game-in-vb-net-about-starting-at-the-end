@@ -15,6 +15,10 @@
             (Columns.ItemIdColumn, itemId))
     End Sub
 
+    Public Sub ClearForCharacter(characterId As Long) Implements ICharacterEquippedItemData.ClearForCharacter
+        Store.ClearForColumnValue(AddressOf NoInitializer, Tables.CharacterEquippedItems, (Columns.CharacterIdColumn, characterId))
+    End Sub
+
     Public Function CountForCharacter(characterId As Long) As Long Implements ICharacterEquippedItemData.CountForCharacter
         Return Store.ReadCountForColumnValue(
             AddressOf NoInitializer,

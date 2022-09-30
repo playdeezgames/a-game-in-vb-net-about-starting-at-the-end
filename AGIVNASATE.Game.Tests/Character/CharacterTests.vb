@@ -77,8 +77,10 @@
         WithSubject(
             Sub(worldData, id, subject)
                 worldData.Setup(Function(x) x.CharacterItem.ReadForCharacter(It.IsAny(Of Long)))
+                worldData.Setup(Sub(x) x.CharacterEquippedItem.ClearForCharacter(It.IsAny(Of Long)))
                 subject.Destroy()
                 worldData.Verify(Function(x) x.CharacterItem.ReadForCharacter(id))
+                worldData.Verify(Sub(x) x.CharacterEquippedItem.ClearForCharacter(id))
             End Sub)
     End Sub
 End Class
