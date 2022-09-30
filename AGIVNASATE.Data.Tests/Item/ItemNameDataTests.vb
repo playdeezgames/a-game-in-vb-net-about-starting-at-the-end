@@ -11,6 +11,12 @@
             Sub(store, subject)
                 Const itemId = 1L
                 subject.Read(itemId).ShouldBeNull
+                store.Verify(
+                    Function(x) x.ReadColumnString(
+                        It.IsAny(Of Action),
+                        Views.ItemNames,
+                        Columns.ItemNameColumn,
+                        (Columns.ItemIdColumn, itemId)))
             End Sub)
     End Sub
 End Class

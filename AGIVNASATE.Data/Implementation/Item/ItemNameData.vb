@@ -7,6 +7,10 @@
     End Sub
 
     Public Function Read(itemId As Long) As String Implements IItemNameData.Read
-        Return Nothing
+        Return Store.ReadColumnString(
+            AddressOf NoInitializer,
+            Views.ItemNames,
+            Columns.ItemNameColumn,
+            (Columns.ItemIdColumn, itemId))
     End Function
 End Class

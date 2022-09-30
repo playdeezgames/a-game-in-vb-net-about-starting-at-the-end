@@ -20,8 +20,8 @@ XX A Game in VB.NET About Starting at the End #JernJam
 
 # Stuff To Do Before Jam End
 
-* Unequip items
 * Give stat buffs for equipped items 
+* Unequip items
 
 # Randomly Chosen Design Decisions
 

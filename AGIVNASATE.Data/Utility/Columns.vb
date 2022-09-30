@@ -8,6 +8,7 @@
     Public Const FromLocationIdColumn = "FromLocationId"
     Public Const InventoryIdColumn = "InventoryId"
     Public Const ItemIdColumn = "ItemId"
+    Public Const ItemNameColumn = "ItemName"
     Public Const ItemTypeIdColumn = "ItemTypeId"
     Public Const ItemTypeNameColumn = "ItemTypeName"
     Public Const LocationIdColumn = "LocationId"
